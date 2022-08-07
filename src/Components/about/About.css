@@ -1,0 +1,55 @@
+.portfolio__about {
+    display: flex;
+    flex-direction: row-reverse;
+    font-family: var(--accent-font);
+    font-size: var(--accent-font-size);
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.portfolio__about-text {
+    width: 60%;
+}
+
+.portfolio__about-image {
+    max-width: 250px;
+    overflow: hidden;
+}
+
+.portfolio__about-image img {
+    width: 100%;
+}
+
+.portfolio__about-easterEgg {
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 1%;
+    transition: var(--transition-slow);
+}
+
+.portfolio__about-easterEgg img {
+    width: 100%;
+    transform: rotateZ(20deg);
+}
+
+.portfolio__easterEgg__triger {
+    transition: var(--transition);
+}
+
+.portfolio__easterEgg__triger:hover {
+    color: var(--accent-color);
+}
+
+@media screen and (max-width: 750px) {
+    .portfolio__about {
+        flex-direction: column;
+        margin-top: 2rem;
+        gap: 2rem;
+    }
+
+    .portfolio__about-text {
+        width: 100%;
+    }
+}

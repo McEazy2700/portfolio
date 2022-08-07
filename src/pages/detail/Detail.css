@@ -1,0 +1,101 @@
+.portfoio__project-detail {
+    font-family: var(--accent-font);
+    font-size: var(--accent-font-size);
+    min-width: 100vw;
+    display: flex;
+    min-height: 100vh;
+    align-items: flex-end;
+}
+
+.project__details {
+    min-height: 50vh;
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 2rem;
+    align-items: center;
+    background: white;
+}
+
+.protfolio__hero {
+    position: fixed;
+    top: 0;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -100;
+    opacity: 0.3;
+}
+
+.project__details-text {
+    padding: 1rem 3rem 1rem 1rem;
+}
+
+.project__details-text ul {
+    padding-left: 0;
+}
+
+.project__title {
+    margin-block: 0.5rem 1rem;
+}
+
+.project__details-video video {
+    box-shadow: var(--box-shadow);
+}
+
+.project__details-video {
+    box-shadow: 10px 10px 5px black;
+    transition: var(--transition);
+}
+
+.project__details-video:hover {
+    box-shadow: 15px -15px 1px black;
+    transform: translate(-5px, 5px);
+}
+
+.project__cta {
+    display: flex;
+    gap: 2rem;
+}
+
+.project__cta a {
+    background: var(--color-primary);
+    padding: 0.5rem 1rem;
+    color: var(--background-color);
+    font-size: medium;
+    box-shadow: 5px 5px black;
+    transition: var(--transition-fast);
+}
+
+.project__cta a:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px black;
+}
+
+a.project__github {
+    background-color: var(--color-github);
+    box-shadow: 5px 5px var(--color-primary);
+}
+
+a.project__github:hover {
+    box-shadow: 3px 3px var(--color-primary);
+}
+
+.project__backButton {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-family: var(--accent-font);
+}
+
+.project__backButton a {
+    color: var(--font-color);
+}
+
+@media screen and (max-width: 1200px) {
+    .project__details {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,41 @@
+.triangle {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotate 40s infinite linear;
+}
+
+.triangle__outer {
+    width: 0;
+    height: 0;
+    border: 100px solid transparent;
+    border-right: 100px solid var(--highlight-color);
+    border-top-width: 50px;
+    border-bottom-width: 50px;
+    border-left-width: 0px;
+}
+
+.triangle__inner {
+    width: 0;
+    height: 0;
+    border: 80px solid transparent;
+    border-right: 80px solid var(--background-color);
+    border-top-width: 40px;
+    border-bottom-width: 40px;
+    border-left-width: 5px;
+    position: absolute;
+    top: auto;
+    left: auto;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(356deg);
+    }
+}

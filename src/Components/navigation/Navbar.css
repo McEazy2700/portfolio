@@ -1,0 +1,119 @@
+.portfolio__navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    position: fixed;
+    bottom: 1%;
+    left: 1px;
+    z-index: 1000;
+    font-family: var(--accent-font);
+}
+
+.portfolio__navbar-icon {
+    background: linear-gradient(to right bottom, var(--color-primary), var(--color-primary-darker));
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px;
+    font-size: larger;
+    font-weight: 700;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    border: 1px solid transparent;
+    z-index: 20;
+}
+
+.portfolio__navbar-icon:hover,
+.portfolio__navbar-icon:active {
+    border: 1px solid black;
+}
+
+.portfolio__navbar-navigation {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    background: transparent;
+    justify-content: center;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 8px 4px;
+    border-radius: 5px;
+    font-size: 24px;
+    width: 100%;
+    z-index: 10;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.portfolio__navbar-navigation.nav-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.portfolio__navbar-navigation_item {
+    color: var(--accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.portfolio__navbar-navigation_item__message {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    color: var(--font-color);
+    font-size: 14px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    position: absolute;
+    left: 2.5rem;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: -100;
+}
+
+.portfolio__navbar-navigation_item__icon {
+    border-radius: 5px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2px 3px;
+    transition: var(--transition);
+}
+
+.portfolio__navbar-icon.control__bottom {
+    position: fixed;
+    left: 1px;
+    bottom: 5px;
+}
+
+.portfolio__navbar-navigation_item__icon:hover ~ 
+.portfolio__navbar-navigation_item__message {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@media screen and (max-width: 1100px) {
+    .portfolio__navbar {
+        left: 2rem;
+    }
+
+    @media screen and (max-width: 610px) {
+        .portfolio__navbar {
+            left: 0.5rem;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+.portfolio__techIcons {
+    display: grid;
+    overflow: hidden;
+    position: relative;
+    height: 110px;
+    margin: auto;
+    width: 80vw;
+    justify-items: center;
+    align-items: center;
+    place-items: center;
+    border: 2px solid var(--color-primary);
+    border-radius: 24px;
+}
+
+.portfolio__techIcons-carousel {
+    display: flex;
+    width: calc(100px * 11);
+    align-items: center;
+    justify-content: center;
+    animation: scroll 40s linear infinite;
+}
+
+.slide {
+    height: 90%;
+    width: 100px;
+    padding: 15px;
+    perspective: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide img{
+    width: 100%;
+    transition: all 0.5s;
+}
+
+
+.portfolio__techIcons::before,
+.portfolio__techIcons::after {
+    background: linear-gradient(to right, var(--background-color), transparent);
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 15%;
+    z-index: 2;
+}
+
+.portfolio__techIcons::before {
+    left: 0;
+    top: 0;
+}
+
+.portfolio__techIcons::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+
+.slide img:hover{
+    transform: translateZ(20px);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-125px * 5.5));
+    }
+}
