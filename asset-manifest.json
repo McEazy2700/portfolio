@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.855bcd7e.css",
-    "main.js": "/portfolio/static/js/main.4c16146d.js",
+    "main.js": "/portfolio/static/js/main.5a11d88c.js",
     "static/media/coding.jpg": "/portfolio/static/media/coding.5f069dcd7fe0a4bef381.jpg",
     "static/media/strawHat.png": "/portfolio/static/media/strawHat.d4d77283749751a31859.png",
     "static/media/coder.svg": "/portfolio/static/media/coder.e1ea95b4c3584e74ded4c93b70e00a64.svg",
@@ -10,10 +10,10 @@
     "static/media/MyFontRegular.otf": "/portfolio/static/media/MyFontRegular.83c6484be6e9a826031c.otf",
     "index.html": "/portfolio/index.html",
     "main.855bcd7e.css.map": "/portfolio/static/css/main.855bcd7e.css.map",
-    "main.4c16146d.js.map": "/portfolio/static/js/main.4c16146d.js.map"
+    "main.5a11d88c.js.map": "/portfolio/static/js/main.5a11d88c.js.map"
   },
   "entrypoints": [
     "static/css/main.855bcd7e.css",
-    "static/js/main.4c16146d.js"
+    "static/js/main.5a11d88c.js"
   ]
 }
