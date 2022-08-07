@@ -1,5 +1,5 @@
 const getUrl = (path) => {
-    const domain = 'http://localhost:8000/'
+    const domain = 'https://vicehq.herokuapp.com/'
     let url = domain + path
     return url
 }
