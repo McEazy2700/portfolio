@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.855bcd7e.css",
-    "main.js": "/portfolio/static/js/main.344c0f89.js",
+    "main.css": "/portfolio/static/css/main.08ec50df.css",
+    "main.js": "/portfolio/static/js/main.bb788021.js",
     "static/media/coding.jpg": "/portfolio/static/media/coding.5f069dcd7fe0a4bef381.jpg",
     "static/media/strawHat.png": "/portfolio/static/media/strawHat.d4d77283749751a31859.png",
+    "static/media/resume.pdf": "/portfolio/static/media/resume.9562eaf00cd34a2e05d5.pdf",
     "static/media/coder.svg": "/portfolio/static/media/coder.e1ea95b4c3584e74ded4c93b70e00a64.svg",
     "static/media/MyFontExtraBold.otf": "/portfolio/static/media/MyFontExtraBold.a1e84714bf333e969d02.otf",
     "static/media/MyFontBold.otf": "/portfolio/static/media/MyFontBold.b469800ca39b52d42251.otf",
     "static/media/MyFontRegular.otf": "/portfolio/static/media/MyFontRegular.83c6484be6e9a826031c.otf",
     "index.html": "/portfolio/index.html",
-    "main.855bcd7e.css.map": "/portfolio/static/css/main.855bcd7e.css.map",
-    "main.344c0f89.js.map": "/portfolio/static/js/main.344c0f89.js.map"
+    "main.08ec50df.css.map": "/portfolio/static/css/main.08ec50df.css.map",
+    "main.bb788021.js.map": "/portfolio/static/js/main.bb788021.js.map"
   },
   "entrypoints": [
-    "static/css/main.855bcd7e.css",
-    "static/js/main.344c0f89.js"
+    "static/css/main.08ec50df.css",
+    "static/js/main.bb788021.js"
   ]
 }
