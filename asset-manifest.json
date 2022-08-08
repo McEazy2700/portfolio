@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.08ec50df.css",
-    "main.js": "/portfolio/static/js/main.73de2826.js",
-    "static/media/coding.jpg": "/portfolio/static/media/coding.5f069dcd7fe0a4bef381.jpg",
-    "static/media/strawHat.png": "/portfolio/static/media/strawHat.d4d77283749751a31859.png",
-    "static/media/resume.pdf": "/portfolio/static/media/resume.9562eaf00cd34a2e05d5.pdf",
-    "static/media/coder.svg": "/portfolio/static/media/coder.e1ea95b4c3584e74ded4c93b70e00a64.svg",
-    "static/media/MyFontExtraBold.otf": "/portfolio/static/media/MyFontExtraBold.a1e84714bf333e969d02.otf",
-    "static/media/MyFontBold.otf": "/portfolio/static/media/MyFontBold.b469800ca39b52d42251.otf",
-    "static/media/MyFontRegular.otf": "/portfolio/static/media/MyFontRegular.83c6484be6e9a826031c.otf",
-    "index.html": "/portfolio/index.html",
-    "main.08ec50df.css.map": "/portfolio/static/css/main.08ec50df.css.map",
-    "main.73de2826.js.map": "/portfolio/static/js/main.73de2826.js.map"
+    "main.css": "./static/css/main.08ec50df.css",
+    "main.js": "./static/js/main.a28516ec.js",
+    "static/media/coding.jpg": "./static/media/coding.5f069dcd7fe0a4bef381.jpg",
+    "static/media/strawHat.png": "./static/media/strawHat.d4d77283749751a31859.png",
+    "static/media/resume.pdf": "./static/media/resume.9562eaf00cd34a2e05d5.pdf",
+    "static/media/coder.svg": "./static/media/coder.e1ea95b4c3584e74ded4c93b70e00a64.svg",
+    "static/media/MyFontExtraBold.otf": "./static/media/MyFontExtraBold.a1e84714bf333e969d02.otf",
+    "static/media/MyFontBold.otf": "./static/media/MyFontBold.b469800ca39b52d42251.otf",
+    "static/media/MyFontRegular.otf": "./static/media/MyFontRegular.83c6484be6e9a826031c.otf",
+    "index.html": "./index.html",
+    "main.08ec50df.css.map": "./static/css/main.08ec50df.css.map",
+    "main.a28516ec.js.map": "./static/js/main.a28516ec.js.map"
   },
   "entrypoints": [
     "static/css/main.08ec50df.css",
-    "static/js/main.73de2826.js"
+    "static/js/main.a28516ec.js"
   ]
 }
