@@ -79,7 +79,7 @@ const Technologies = () => {
             <div className="portfolio__tech-stack_stack">
               <ul>
                 {frontendTech.map((tech) => (
-                  <li>{tech}</li>
+                  <li key={tech}>{tech}</li>
                 ))}
               </ul>
             </div>
@@ -99,7 +99,7 @@ const Technologies = () => {
             <div className="portfolio__tech-stack_stack">
               <ul>
                 {backendTech.map((tech) => (
-                  <li>{tech}</li>
+                  <li key={tech}>{tech}</li>
                 ))}
               </ul>
             </div>
@@ -119,7 +119,7 @@ const Technologies = () => {
             <div className="portfolio__tech-stack_stack">
               <ul>
                 {cloudServices.map((tech) => (
-                  <li>{tech}</li>
+                  <li key={tech}>{tech}</li>
                 ))}
               </ul>
             </div>

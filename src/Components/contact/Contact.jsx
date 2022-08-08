@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Icons } from '../icons/Icons'
 import { Alert } from '@mui/material';
 import emailjs from '@emailjs/browser';
+import Resume from '../../assets/documents/resume.pdf'
 import Tag from '../tag/Tag'
 import './Contact.css'
 
@@ -40,10 +41,13 @@ const Contact = () => {
             <div className="portfolio__contact-info_icons">
                 <Icons />
             </div>
+            <div className="resume">
+                <a href={Resume} target='_blank'>Resume</a>
+            </div>
         </motion.div>
         <motion.div 
-        initial={{ opacity: 0, x: '10px'}}
-        whileInView={{ opacity: 1, x: '0'}}
+        initial={{ opacity: 0, y: '10px'}}
+        whileInView={{ opacity: 1, y: '0'}}
         transition={{ duration: 0.4 }}
         className="portfolio__contact-form">
             <Tag name="contact">

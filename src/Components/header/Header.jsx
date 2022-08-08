@@ -31,6 +31,9 @@ const Header = () => {
             <div className="portfolio__header-icons">
                 <Icons />
             </div>
+            <div className="greet__button">
+                <a href="#contact">Say Hello</a>
+            </div>
         </motion.header>
         <motion.div
         initial={{ opacity: 0, y: '-10px'}}

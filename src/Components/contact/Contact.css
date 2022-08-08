@@ -67,6 +67,23 @@
     display: flex;
 }
 
+.resume a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    transition: var(--transition);
+    box-shadow: 3px 5px black;
+}
+
+.resume a:hover,
+.resume a:active {
+    box-shadow: 1px 1px black;
+    transform: translate(2px, 4px);
+}
+
 @media screen and (max-width: 880px) {
     .portfolio__contact {
         flex-direction: column-reverse;

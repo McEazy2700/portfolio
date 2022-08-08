@@ -25,7 +25,7 @@ const Detail = () => {
         width = '400px'
         height = '225px'
     }else if (isSmaller) {
-        width = '300px'
+        width = '100vw'
         height = '169px'
     }
 
