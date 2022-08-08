@@ -1,5 +1,4 @@
 .portfolio__tech {
-    font-family: var(--accent-font);
     display: flex;
     flex-direction: column;
     padding-inline: 2rem;
@@ -13,6 +12,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+    padding-block: 1rem;
     perspective: 150px;
 }
 
@@ -20,7 +20,7 @@
     background-color: var(--accent-color);
     height: 350px;
     color: var(--background-color);
-    font-size: 1.1em;
+    font-size: var(--accent-font-size-medium);
 }
 
 .portfolio__tech-stack:nth-child(2) h2 {

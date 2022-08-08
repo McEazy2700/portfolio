@@ -1,45 +1,51 @@
- body {
-  background-color: var(--background-color);
-  font-family: var(--font-family);
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  color: var(--font-color);
-  /* scroll-snap-type: y mandatory;  */
-  transition: var(--transition);
-}
 
- /* * {
-   border: 1px solid var(--color-primary);
- } */
-
-
- html {
+html {
    scroll-behavior: smooth;
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   /* scroll-snap-type: y mandatory; */
    transition: var(--transition);
+   /* scroll-snap-type: y mandatory; */
 }
 
- h1, h2, h3, h4, h5, h6, p {
+body {
+   background-color: var(--background-color);
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   justify-content: center;
+   width: 100%;
+   color: var(--font-color);
+   transition: var(--transition);
+   /* scroll-snap-type: y mandatory;  */
+}
+
+h1, h2, h3, h4, h5, h6, p {
    margin: 0;
    padding: 0;
- }
+}
 
- a {
-    text-decoration: none;
- }
+a {
+   text-decoration: none;
+}
 
- .container {
+section{
+   min-height: 100vh;
+   scroll-snap-align: center;
+}
+
+.App {
+   scroll-snap-type: mandatory;
+}
+
+.container {
    scroll-snap-type: y mandatory;
    transition: var(--transition);
    display: flex;
    flex-direction: column;
- }
+   font-family: var(--accent-font);
+   font-size: var(--accent-font-size);
+}
 
 .html__tag {
    font-size: 1.4rem;
@@ -64,16 +70,6 @@
    color: var(--accent-color);
    font-size: 1.5rem;
 }
-
-.App {
-   scroll-snap-type: mandatory;
-}
-
- section{
-   min-height: 100vh;
-   scroll-snap-align: center;
- }
-
 
 .fadeOut__short {
    transform: translateY(5px);
@@ -105,8 +101,13 @@
    color: var(--color-primary);
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 780px) {
    .container {
-       font-size: 0.85rem;
+      font-size: var(--accent-font-size-medium);
+   }
+   @media screen and (max-width: 330px) {
+      .container {
+          font-size: var(--accent-font-size-small);
+      }
    }
 }

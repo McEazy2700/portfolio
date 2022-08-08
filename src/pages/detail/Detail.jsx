@@ -18,6 +18,9 @@ const Detail = () => {
     const isSmaller = useMediaQuery({
         query: '(max-width: 415px)'
     })
+    const isSmallest = useMediaQuery({
+        query: '(max-width: 400px)'
+    })
 
     let width = '650px'
     let height = '360px'
@@ -25,8 +28,11 @@ const Detail = () => {
         width = '400px'
         height = '225px'
     }else if (isSmaller) {
-        width = '100vw'
+        width = '300px'
         height = '169px'
+    }else if (isSmallest) {
+        width = '250px'
+        height = '140px'
     }
 
     useEffect(()=>{

@@ -9,6 +9,9 @@
   --accent-color: #616bf1;
   --accent-font: 'Claris Sans', sans-serif;
   --accent-font-size: 1.3rem;
+  --accent-font-size-large: 1.5rem;
+  --accent-font-size-medium: 1rem;
+  --accent-font-size-small: 0.7rem;
   --accent-transparent: rgba(0, 0, 0, 0.1);
   --color-primary: #651fff;
   --border-radius: 24px;
@@ -21,7 +24,6 @@
   --color-primary-darker: #3f2f61;
   --highlight-color: rgba(117, 117, 117, 0.54);
   --font-color: #000000;
-  --font-family: 'Lato', sans-serif;
   --icon-color: #E1BEE7;
   --transition-fast: all 0.2s ease;
   --transition: all 0.3s ease;

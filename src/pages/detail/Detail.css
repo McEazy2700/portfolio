@@ -87,6 +87,7 @@ a.project__github:hover {
     position: fixed;
     top: 10px;
     left: 10px;
+    z-index: 1000;
     font-family: var(--accent-font);
 }
 
@@ -97,5 +98,21 @@ a.project__github:hover {
 @media screen and (max-width: 1200px) {
     .project__details {
         flex-direction: column;
+    }
+    @media screen and (max-width: 900px) {
+        .portfoio__project-detail {
+            font-size: var(--accent-font-size-medium);
+        }
+    }
+    @media screen and (max-width: 400px) {
+        .project__details {
+            padding-inline: 5px;
+        }
+        .portfoio__project-detail,
+        .project__details {
+            justify-content: center;
+            align-content: center;
+            width: 100%;
+        }
     }
 }

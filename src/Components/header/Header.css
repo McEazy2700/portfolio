@@ -14,8 +14,7 @@
 
 .portfolio__header-text {
     letter-spacing: 2px;
-    font-size: 1.5rem;
-    font-family: var(--accent-font);
+    font-size: var(--accent-font-size-large);
     width: 90%;
     position: relative;
 }
@@ -84,7 +83,6 @@
     background-color: var(--accent-color);
     border: none;
     color: var(--background-color);
-    font-family: var(--accent-font);
     box-shadow: 1px 3px black;
     transition: var(--transition-fast);
 }
@@ -98,6 +96,10 @@
 @media screen and (max-width: 950px) {
     .portfolio__header {
         flex-direction: column;
+    }
+
+    .portfolio__header-text {
+        font-size: var(--accent-font-size-medium);
     }
 
     .portfolio__header-hero,

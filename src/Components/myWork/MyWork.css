@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-family: var(--accent-font);
     scroll-snap-type: none;
     scroll-snap-align: center;
 }
@@ -128,13 +127,24 @@
 .portfolio__project-cta a {
     color: var(--background-color);
 }
-
-@media screen and (max-width: 600px) {
-    .portfolio__projects-project_detail {
-        flex-direction: column-reverse !important;
+@media screen and (max-width: 1150px) {
+    .portfolio__project-text p {
+        max-width: 40ch;
     }
-    .portfolio__project-image,
-    .portfolio__project-text {
-        width: 100%;
+    @media screen and (max-width: 600px) {
+        .portfolio__projects-project_detail {
+            flex-direction: column-reverse !important;
+        }
+        .portfolio__project-image,
+        .portfolio__project-text {
+            width: 100%;
+        }
+    
+    }
+
+    @media screen and (max-width: 570px) {
+        .portfolio__project-text p {
+            max-width: 20ch;
+        }
     }
 }
