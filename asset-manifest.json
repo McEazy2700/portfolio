@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.08ec50df.css",
-    "main.js": "./static/js/main.a28516ec.js",
+    "main.css": "./static/css/main.9c406a3f.css",
+    "main.js": "./static/js/main.92fe4f6f.js",
     "static/media/coding.jpg": "./static/media/coding.5f069dcd7fe0a4bef381.jpg",
     "static/media/strawHat.png": "./static/media/strawHat.d4d77283749751a31859.png",
     "static/media/resume.pdf": "./static/media/resume.9562eaf00cd34a2e05d5.pdf",
@@ -10,11 +10,11 @@
     "static/media/MyFontBold.otf": "./static/media/MyFontBold.b469800ca39b52d42251.otf",
     "static/media/MyFontRegular.otf": "./static/media/MyFontRegular.83c6484be6e9a826031c.otf",
     "index.html": "./index.html",
-    "main.08ec50df.css.map": "./static/css/main.08ec50df.css.map",
-    "main.a28516ec.js.map": "./static/js/main.a28516ec.js.map"
+    "main.9c406a3f.css.map": "./static/css/main.9c406a3f.css.map",
+    "main.92fe4f6f.js.map": "./static/js/main.92fe4f6f.js.map"
   },
   "entrypoints": [
-    "static/css/main.08ec50df.css",
-    "static/js/main.a28516ec.js"
+    "static/css/main.9c406a3f.css",
+    "static/js/main.92fe4f6f.js"
   ]
 }
