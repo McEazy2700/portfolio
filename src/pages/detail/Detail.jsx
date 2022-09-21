@@ -6,6 +6,7 @@ import AnimatedPage from '../../Components/animations/AnimatedPage'
 import getUrl from '../../utils/getUrl'
 import getData from '../../utils/getData'
 import Tag from '../../Components/tag/Tag'
+import styles from './Detail.module.css'
 import './Detail.css'
 
 const Detail = () => {
@@ -44,34 +45,39 @@ const Detail = () => {
 
   return (
     <AnimatedPage className='portfoio__project-detail'>
-        <div className="project__backButton">
-            <Link to='..'>&#8592; Back</Link>
-        </div>
-        <section className='project__details'>
-            <div style={{ backgroundImage: `url(${project.image})`}} className="protfolio__hero"></div>
-            <div className="project__details-text">
-                <div className="project__title">
-                    <h1>{project.name}</h1>
-                </div>
-                <div className="project__description">
-                    <p>{project.description}</p>
-                </div>
-                <ul className="project__techStack">
-                    <Tag name='stack'>
-                        {technologies.map(tech=><li key={tech.id}>{tech.name}</li>)}
-                    </Tag>
-                </ul>
-                <div className="project__cta">
-                    <a className='project__github' href={project.github}>Github</a>
-                    <a className='project__link' href={project.link}>Live Demo</a>
-                </div>
+        <Link className={styles.back} to='..'>
+            <div className={styles.back}>
+                  <span>&#8592;</span> <span>Back</span>
             </div>
-            <div className="project__details-video">
-                <ReactPlayer
-                width={width}
-                height={height}
-                className='react-player'
-                 controls loop url={project.video} />
+        </Link>
+        <section style={{ backgroundImage: `url(${project.image})`}} className={styles.section}>
+            <div className={styles.container}>
+                <div className="project__details-video">
+                    <ReactPlayer
+                    width={'100%'}
+                    height={'100%'}
+                    className='react-player'
+                    style={{ aspectRatio: '16 / 9'}}
+                    controls loop url={project.video} />
+                </div>
+                <div className="project__details-text">
+                    <div className="project__title">
+                        <h1>{project.name}</h1>
+                    </div>
+                    <div className={styles.description}>
+                        <p>{project.description}</p>
+                    </div>
+                    <ul className="project__techStack">
+                        <Tag name='stack'>
+                            {technologies.map(tech=><li key={tech.id}>{tech.name}</li>)}
+                        </Tag>
+                    </ul>
+                    <div className="project__cta">
+                        <a className='project__github' href={project.github}>Github</a>
+                        <a className='project__link' href={project.link}>Live Demo</a>
+                    </div>
+                </div>
+                  
             </div>
         </section>
     </AnimatedPage>

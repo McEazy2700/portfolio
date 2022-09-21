@@ -4,8 +4,8 @@ import "./Technologies.css";
 import Tag from "../tag/Tag";
 
 const Technologies = () => {
-  const backendTech = ["Python", "Django", "Django REST Framework", "Fast API"];
-  const frontendTech = ["HTML", "CSS", "JavaScript", "React"];
+  const backendTech = ["Python", "Django", "Django REST Framework", "GraphQL", "Fast API"];
+  const frontendTech = ["HTML", "CSS", "JavaScript", "React", "Next.js"];
   const cloudServices = ["AWS", "Heroku", "Cloudinary"];
   const [mouseEntered, setMouseEntered] = useState(false);
   const [cursorVariant, setCursorVariant] = useState("default");

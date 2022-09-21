@@ -17,6 +17,7 @@ body {
    width: 100%;
    color: var(--font-color);
    transition: var(--transition);
+   margin: 0;
    /* scroll-snap-type: y mandatory;  */
 }
 
@@ -34,8 +35,15 @@ section{
    scroll-snap-align: center;
 }
 
+#root {
+   min-width: 100%;
+   min-height: 100%;
+}
+
 .App {
    scroll-snap-type: mandatory;
+   margin: 0;
+   box-sizing: border-box;
 }
 
 .container {

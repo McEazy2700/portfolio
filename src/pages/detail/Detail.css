@@ -85,9 +85,6 @@ a.project__github:hover {
 
 .project__backButton {
     position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
     font-family: var(--accent-font);
 }
 
