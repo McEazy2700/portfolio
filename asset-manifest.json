@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "./static/css/main.9c406a3f.css",
-    "main.js": "./static/js/main.92fe4f6f.js",
+    "main.css": "./static/css/main.b66fc490.css",
+    "main.js": "./static/js/main.98cf2a17.js",
     "static/media/coding.jpg": "./static/media/coding.5f069dcd7fe0a4bef381.jpg",
     "static/media/strawHat.png": "./static/media/strawHat.d4d77283749751a31859.png",
-    "static/media/resume.pdf": "./static/media/resume.9562eaf00cd34a2e05d5.pdf",
     "static/media/coder.svg": "./static/media/coder.e1ea95b4c3584e74ded4c93b70e00a64.svg",
+    "static/media/resume.pdf": "./static/media/resume.d4caca3d263fa7fa954d.pdf",
     "static/media/MyFontExtraBold.otf": "./static/media/MyFontExtraBold.a1e84714bf333e969d02.otf",
     "static/media/MyFontBold.otf": "./static/media/MyFontBold.b469800ca39b52d42251.otf",
     "static/media/MyFontRegular.otf": "./static/media/MyFontRegular.83c6484be6e9a826031c.otf",
     "index.html": "./index.html",
-    "main.9c406a3f.css.map": "./static/css/main.9c406a3f.css.map",
-    "main.92fe4f6f.js.map": "./static/js/main.92fe4f6f.js.map"
+    "main.b66fc490.css.map": "./static/css/main.b66fc490.css.map",
+    "main.98cf2a17.js.map": "./static/js/main.98cf2a17.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c406a3f.css",
-    "static/js/main.92fe4f6f.js"
+    "static/css/main.b66fc490.css",
+    "static/js/main.98cf2a17.js"
   ]
 }
