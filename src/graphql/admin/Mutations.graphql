@@ -1,0 +1,20 @@
+mutation NewProject($input: ProjectInput!) {
+  newProject(input: $input) {
+    success
+    data {
+      id
+      title
+    }
+  }
+}
+
+mutation NewImage($input: ImageInput!) {
+  newImage(input: $input) {
+    success
+    data {
+      url
+      description
+      id
+    }
+  }
+}

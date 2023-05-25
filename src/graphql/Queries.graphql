@@ -1,0 +1,11 @@
+query Images($options: ImageFilterPageOptions) {
+  images(options: $options) {
+    total
+    count
+    data {
+      url
+      description
+      id
+    }
+  }
+}
