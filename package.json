@@ -12,7 +12,6 @@
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
-    "@mceazy2700/react_component_library": "^0.0.1",
     "@mui/material": "^5.13.2",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/node": "20.2.1",

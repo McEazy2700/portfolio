@@ -14,6 +14,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   Upload: any;
+  Void: any;
 };
 
 export type ImageFilter = {
@@ -102,6 +103,12 @@ export type MutationRegisterArgs = {
   input: ResgisterInput;
 };
 
+export type NoneTypePageOptions = {
+  filter?: InputMaybe<Scalars['Void']>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+};
+
 export type ProfileType = {
   __typename?: 'ProfileType';
   bio?: Maybe<Scalars['String']>;
@@ -132,6 +139,16 @@ export type ProjectType = {
   title: Scalars['String'];
 };
 
+export type ProjectTypePaginatedList = {
+  __typename?: 'ProjectTypePaginatedList';
+  /** the total number of reccords returned */
+  count: Scalars['Int'];
+  /** the list of reccords */
+  data: Array<ProjectType>;
+  /** the total number of reccords available */
+  total: Scalars['Int'];
+};
+
 export type ProjectTypeSuccess = {
   __typename?: 'ProjectTypeSuccess';
   data: ProjectType;
@@ -143,6 +160,7 @@ export type Query = {
   images: ImageTypePaginatedList;
   me?: Maybe<UserType>;
   project: ProjectType;
+  projects: ProjectTypePaginatedList;
 };
 
 
@@ -153,6 +171,11 @@ export type QueryImagesArgs = {
 
 export type QueryProjectArgs = {
   id: Scalars['Int'];
+};
+
+
+export type QueryProjectsArgs = {
+  options?: InputMaybe<NoneTypePageOptions>;
 };
 
 export type ResgisterInput = {
@@ -191,6 +214,13 @@ export type ImagesQueryVariables = Exact<{
 
 export type ImagesQuery = { __typename?: 'Query', images: { __typename?: 'ImageTypePaginatedList', total: number, count: number, data: Array<{ __typename?: 'ImageType', url: string, description: string, id: string }> } };
 
+export type ProjectsQueryVariables = Exact<{
+  options?: InputMaybe<NoneTypePageOptions>;
+}>;
+
+
+export type ProjectsQuery = { __typename?: 'Query', projects: { __typename?: 'ProjectTypePaginatedList', total: number, count: number, data: Array<{ __typename?: 'ProjectType', id: string, title: string, description: string, github?: string | null, liveUrl?: string | null, images?: Array<{ __typename?: 'ImageType', url: string, description: string, id: string }> | null }> } };
+
 export type NewProjectMutationVariables = Exact<{
   input: ProjectInput;
 }>;
@@ -222,6 +252,30 @@ export const ImagesDocument = gql`
 
 export function useImagesQuery(options?: Omit<Urql.UseQueryArgs<ImagesQueryVariables>, 'query'>) {
   return Urql.useQuery<ImagesQuery, ImagesQueryVariables>({ query: ImagesDocument, ...options });
+};
+export const ProjectsDocument = gql`
+    query Projects($options: NoneTypePageOptions) {
+  projects(options: $options) {
+    total
+    count
+    data {
+      id
+      title
+      description
+      github
+      liveUrl
+      images {
+        url
+        description
+        id
+      }
+    }
+  }
+}
+    `;
+
+export function useProjectsQuery(options?: Omit<Urql.UseQueryArgs<ProjectsQueryVariables>, 'query'>) {
+  return Urql.useQuery<ProjectsQuery, ProjectsQueryVariables>({ query: ProjectsDocument, ...options });
 };
 export const NewProjectDocument = gql`
     mutation NewProject($input: ProjectInput!) {

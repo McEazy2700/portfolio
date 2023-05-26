@@ -2,7 +2,6 @@
 import React from "react";
 import { ThemeOptions, ThemeProvider, createTheme } from '@mui/material/styles';
 import { Button, CssBaseline, PaletteMode } from "@mui/material";
-import { IconButton } from "@mui/material";
 import { MdBrightness7, MdBrightness4 } from "react-icons/md";
 
 

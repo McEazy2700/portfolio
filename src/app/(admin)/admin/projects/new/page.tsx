@@ -2,7 +2,7 @@
 import { FullCircularProgress, ImagePicker, TimedAlert } from "@/components/common";
 import { AlertVariants } from "@/components/common/feedback/alert/TimedAlert";
 import { ImageType, ProjectType, useNewProjectMutation } from "@/graphql/codegen/generated";
-import { Box, Button, ImageList, ImageListItem, Modal, TextField, Typography } from "@mui/material";
+import { Box, Button, Grid, ImageList, ImageListItem, Modal, TextField, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -49,7 +49,7 @@ const NewProject = (props: NewProjectProps) => {
     return (
         <Box onSubmit={handleSubmit} className="relative p-4" component="form">
             {data?.newProject.success && <TimedAlert after={onSuccess}>Project Created</TimedAlert>}
-            {error && <TimedAlert variant={AlertVariants.ERROR}>{error.message}</TimedAlert>}
+            {error && <TimedAlert duration={8000} variant={AlertVariants.ERROR}>{error.message}</TimedAlert>}
             <fieldset className="flex bg-gray-500/5 rounded border dark:border-gray-600/5 border-black/5 flex-col gap-3 p-4">
                 <legend className="text-violet-500 font-semibold text-xl bg-white p-1 px-2 dark:bg-zinc-900 rounded border dark:border-gray-400/5 border-black/5">New Project</legend>
                 <TextField
@@ -61,27 +61,27 @@ const NewProject = (props: NewProjectProps) => {
                     label="Project title"
                     placeholder="My new project"
                     defaultValue={defaultProject?.title} />
-                <section className="border border-white/10 rounded p-1">
+                <section className="border border-black/5 dark:border-white/10 rounded p-1">
                     <Typography gutterBottom className="p-1 px-2 text-violet-400" component="h2">Images</Typography>
-                    <ImageList cols={3} rowHeight={250}>
+                    <Grid container columns={{ xs: 1, sm: 2, md: 3 }} spacing={1}>
                     { images && Array.from(images).map(image => (
-                        <ImageListItem key={image.id}>
+                        <Grid xs={1} className="aspect-video" item key={image.id}>
                             <Image
                                 width="500" height="400"
                                 alt={image.description} src={image.url}
                                 className="h-full aspect-square object-cover rounded" />
-                        </ImageListItem>
+                        </Grid>
                     ))}
-                    <ImageListItem className="p-1">
+                    <Grid xs={1} item className="aspect-video">
                         <Button onClick={toggleImagePicker}
                             className="w-full h-full !text-black dark:!text-white hover:!bg-gray-300 !bg-gray-200 dark:hover:!bg-zinc-900 dark:!bg-zinc-800 self-end"
                             variant="contained">Add Image +</Button>
-                    </ImageListItem>
-                    </ImageList>
+                    </Grid>
+                    </Grid>
                 </section>
-                <section className="border flex-col flex gap-1 border-white/10 rounded p-1">
+                <section className="border flex-col flex gap-1 border-black/5 dark:border-white/10 rounded p-1">
                     <Typography gutterBottom className="p-1 px-2 text-violet-400" component="h2">URLs</Typography>
-                    <div className="flex gap-1">
+                    <div className="flex flex-col md:flex-row gap-1">
                         <TextField defaultValue={defaultProject?.github} inputRef={githubRef} variant="filled" label="Github" fullWidth type="url"/>
                         <TextField defaultValue={defaultProject?.liveUrl} inputRef={urlRef} variant="filled" label="Live URL" fullWidth type="url"/>
                     </div>
@@ -100,7 +100,7 @@ const NewProject = (props: NewProjectProps) => {
                 <Button variant="contained" type="submit">Submit</Button>
             </fieldset>
             <Modal aria-labelledby="Image picker" aria-describedby="select image"
-                className="md:p-10 md:px-20" open={showImagePicker} onClose={toggleImagePicker}>
+                className="p-4 py-7 max-h-[95vh] overflow-auto md:p-10 md:px-20" open={showImagePicker} onClose={toggleImagePicker}>
                 <Box className="flex bg-white rounded flex-col outline-none p-5 dark:bg-zinc-800">
                     <Typography className="text-violet-400 font-medium !text-2xl"gutterBottom component="h1">Image Picker</Typography>
                     <ImagePicker onSelect={handleImageSelect}/>

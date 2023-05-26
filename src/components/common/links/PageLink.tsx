@@ -12,7 +12,7 @@ export default function PageLink(props: PageLinkProps) {
     return (
         <Link href={href}
             className={`
-                absolute flex items-center group text-lg text-white/40
+                absolute flex items-center group text-lg
                 transition hover:text-violet-400 bottom-0 ${left ? "left-0 flex-row-reverse" : "right-0"}`}>
             {name}
             {left ? (
@@ -22,4 +22,4 @@ export default function PageLink(props: PageLinkProps) {
             )}
         </Link>
     );
-};
+}

@@ -12,6 +12,7 @@ import FadeSpan from "@/components/common/framer/spans/FadeSpan";
 
 /******************** Logo ***********************/
 import InlineLogo from "@/components/common/logo/InlineLogo";
+import RoundLogo from "@/components/common/logo/RoundLogo";
 
 /******************** Inputs *********************/
 import Input from "@/components/common/inputs/Input";
@@ -26,11 +27,18 @@ import ImagePickerItem from "@/components/common/inputs/ImagePickerItem";
 /******************** Feedback ********************/
 import FullCircularProgress from "@/components/common/feedback/loading/FullCircularProgress";
 import LoadingLogo from "@/components/common/feedback/loading/LoadingLogo";
+import FullLoadingLogo from "@/components/common/feedback/loading/FullLoadingLogo";
 import TimedAlert from "@/components/common/feedback/alert/TimedAlert";
+
+/******************* Projects *********************/
+import ProjectList from "@/components/common/projects/ProjectList";
 
 
 export {
-    SidebarLink, SidebarDiv, InlineLogo,
+    /*** Logo ***/
+    RoundLogo, InlineLogo,
+
+    SidebarLink, SidebarDiv,
     FadeSpan, IconLink, PageLink, Page,
 
     /*** Inputs ***/
@@ -39,5 +47,9 @@ export {
     ImagePickerItem,
 
     /*** Feedback ***/
-    FullCircularProgress, LoadingLogo, TimedAlert
+    FullCircularProgress, LoadingLogo, TimedAlert,
+    FullLoadingLogo,
+
+    /*** Projects ***/
+    ProjectList,
 };

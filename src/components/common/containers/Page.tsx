@@ -11,10 +11,10 @@ export default function Page(props: PageProps) {
         <AnimatePresence>
             <motion.div
                 key={Math.random()}
-                exit={{ opacity: 0 }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="flex gap-2 relative min-h-[65vh]">
+                exit={{ opacity: 0,  y: -5 }}
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex text-black/80 dark:text-white/80 gap-2 relative min-h-[65vh]">
                 { children }
             </motion.div>
         </AnimatePresence>

@@ -1211,11 +1211,6 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@mceazy2700/react_component_library@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.npmjs.org/@mceazy2700/react_component_library/-/react_component_library-0.0.1.tgz#c80186ce55762d11436d07473eb6a03e061f47c9"
-  integrity sha512-F0kzD2t8oS+IJsPV/Z+OGY5+zglRwLHOzrTaVGWXibgmC7STr1iFZqcIpu9e0MeaKK/8ULfEbWDg29QDCTI/Xw==
-
 "@mui/base@5.0.0-beta.2":
   version "5.0.0-beta.2"
   resolved "https://registry.npmjs.org/@mui/base/-/base-5.0.0-beta.2.tgz#d7216897c8e523c4bd26d8d292cac1bcf156dc87"

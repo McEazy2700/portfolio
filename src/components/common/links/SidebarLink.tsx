@@ -20,4 +20,4 @@ export default function SidebarLink(props: SideBarLinkProps) {
             { children }
         </Link>
     );
-};
+}

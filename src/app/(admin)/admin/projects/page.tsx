@@ -1,5 +1,9 @@
+import { ProjectList } from "@/components/common";
+
 export default function Projects() {
     return (
-        <div>Welcome to the Projects Page</div>
+        <div className="p-3">
+            <ProjectList />
+        </div>
     )
 }

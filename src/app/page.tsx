@@ -14,7 +14,7 @@ export default function Home() {
                         Ezekiel Victor
                     </motion.h1>
                     <h2 className="font-medium text-3xl">Software Developer</h2>
-                    <p className="text-white/40 font-medium text-xl">
+                    <p className="font-medium text-xl">
                         I build intuitive solutions to tackle everyday challenges.
                     </p>
                 </div>
@@ -22,7 +22,7 @@ export default function Home() {
                     {socials.map(social => <IconLink key={social.name} title={social.name} href={social.link} icon={social.icon} />)}
                 </ul>
             </div>
-            <div className="bg-white/5 border h-fit flex flex-col gap-3 flex-1 p-4 rounded-lg text-white/60 border-white/5">
+            <div className="bg-white/5 border h-fit flex flex-col gap-3 flex-1 p-4 border-black/5 rounded-lg dark:border-white/5">
                 <h3 className="font-semibold italic text-violet-400 text-lg">Pointless information</h3>
                 <p className="text-justify">
                     I consider 2021 to be the year I &quot;seriously started programming&quot;

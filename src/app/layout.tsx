@@ -2,6 +2,8 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import ReduxProvider from "@redux/provider";
 import Sidebar from "@/components/common/sidebar/Sidebar";
+import { DarkThemeProvider } from '@/components/themes';
+import QueryProvider from '@/graphql/config';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,14 +20,18 @@ export default function RootLayout(props: RootLayoutType) {
     const { children } = props;
     return (
         <html lang="en">
-            <ReduxProvider>
-                <body className={inter.className}>
-                    <main className="lg:p-28 lg:px-32">
-                        <Sidebar />
-                        {children}
-                    </main>
-                </body>
-            </ReduxProvider>
+            <QueryProvider>
+                <ReduxProvider>
+                    <body className={inter.className}>
+                        <DarkThemeProvider>
+                            <Sidebar />
+                            <main className="lg:p-28 lg:px-32">
+                                {children}
+                            </main>
+                        </DarkThemeProvider>
+                    </body>
+                </ReduxProvider>
+            </QueryProvider>
         </html>
     )
 }

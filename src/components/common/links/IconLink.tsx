@@ -10,6 +10,7 @@ interface IconLinkProps {
 export default function IconLink(props: IconLinkProps) {
     const { href, icon: Icon, title } = props;
     return (
-        <Link className="text-white/30 transition hover:text-violet-500" title={title} href={href}><Icon size={33}/></Link>
+        <Link className="text-violet-500/70 transition hover:text-violet-500"
+            title={title} href={href}><Icon size={33}/></Link>
     )
 }
