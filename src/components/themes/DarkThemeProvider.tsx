@@ -53,7 +53,7 @@ export default function DarkThemeProvider(props: ThemeProps) {
         <ThemeProvider theme={theme}>
             <html className={mode} lang="en">
                 <CssBaseline />
-                <body className="z-0 min-h-screen relative">
+                <body className="text-black dark:text-white z-0 min-h-screen relative">
                     {children}
                     <ToggleThemeButton mode={mode} toggle={toggleMode} />
                 </body>

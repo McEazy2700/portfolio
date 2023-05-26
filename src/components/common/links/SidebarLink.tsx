@@ -15,7 +15,7 @@ export default function SidebarLink(props: SideBarLinkProps) {
     return (
         <Link title={title} className={`
             flex items-center p-6 rounded-full border border-transparent transition
-            hover:border-white/10 hover:bg-white/20 ${className}`} href={href}>
+            hover:border-black/10 hover:text-white dark:hover:border-white/10 hover:bg-black/20 dark:hover:bg-white/20 ${className}`} href={href}>
             <span className="flex text-violet-400 aspect-square"><Icon size={30}/></span>
             { children }
         </Link>
