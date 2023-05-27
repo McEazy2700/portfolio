@@ -8,4 +8,4 @@ export default function Projects() {
             <PageLink name="Home" href="/" left/>
         </Page>
     );
-};
+}

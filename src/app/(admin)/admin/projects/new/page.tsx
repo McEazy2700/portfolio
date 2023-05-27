@@ -1,20 +1,16 @@
 "use client"
 import { FullCircularProgress, ImagePicker, TimedAlert } from "@/components/common";
 import { AlertVariants } from "@/components/common/feedback/alert/TimedAlert";
-import { ImageType, ProjectType, useNewProjectMutation } from "@/graphql/codegen/generated";
+import { ImageType, useNewProjectMutation } from "@/graphql/codegen/generated";
 import { Box, Button, ImageList, ImageListItem, Modal, TextField, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-interface NewProjectProps {
-    defaultProject?: ProjectType
-}
 
-const NewProject = (props: NewProjectProps) => {
-    const { defaultProject } = props;
+export default function NewProject() {
     const [{ data, fetching, error }, mutate] = useNewProjectMutation();
-    const [images, setImages] = React.useState<Set<ImageType>>(new Set(defaultProject?.images));
+    const [images, setImages] = React.useState<Set<ImageType>>(new Set());
     const [showImagePicker, setShowImagePicker] = React.useState(false);
     const titleRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
     const descRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
@@ -39,7 +35,6 @@ const NewProject = (props: NewProjectProps) => {
                 imageIds: Array.from(images).map(image => parseInt(image.id)),
                 github: githubRef.current.value,
                 liveUrl: githubRef.current.value,
-                id: defaultProject?.id
             }
         })
     }
@@ -59,31 +54,30 @@ const NewProject = (props: NewProjectProps) => {
                     inputRef={titleRef}
                     variant="filled"
                     label="Project title"
-                    placeholder="My new project"
-                    defaultValue={defaultProject?.title} />
+                    placeholder="My new project" />
                 <section className="border border-white/10 rounded p-1">
                     <Typography gutterBottom className="p-1 px-2 text-violet-400" component="h2">Images</Typography>
                     <ImageList cols={3} rowHeight={250}>
-                    { images && Array.from(images).map(image => (
-                        <ImageListItem key={image.id}>
-                            <Image
-                                width="500" height="400"
-                                alt={image.description} src={image.url}
-                                className="h-full aspect-square object-cover rounded" />
+                        {images && Array.from(images).map(image => (
+                            <ImageListItem key={image.id}>
+                                <Image
+                                    width="500" height="400"
+                                    alt={image.description} src={image.url}
+                                    className="h-full aspect-square object-cover rounded" />
+                            </ImageListItem>
+                        ))}
+                        <ImageListItem className="p-1">
+                            <Button onClick={toggleImagePicker}
+                                className="w-full h-full !text-black dark:!text-white hover:!bg-gray-300 !bg-gray-200 dark:hover:!bg-zinc-900 dark:!bg-zinc-800 self-end"
+                                variant="contained">Add Image +</Button>
                         </ImageListItem>
-                    ))}
-                    <ImageListItem className="p-1">
-                        <Button onClick={toggleImagePicker}
-                            className="w-full h-full !text-black dark:!text-white hover:!bg-gray-300 !bg-gray-200 dark:hover:!bg-zinc-900 dark:!bg-zinc-800 self-end"
-                            variant="contained">Add Image +</Button>
-                    </ImageListItem>
                     </ImageList>
                 </section>
                 <section className="border flex-col flex gap-1 border-white/10 rounded p-1">
                     <Typography gutterBottom className="p-1 px-2 text-violet-400" component="h2">URLs</Typography>
                     <div className="flex gap-1">
-                        <TextField defaultValue={defaultProject?.github} inputRef={githubRef} variant="filled" label="Github" fullWidth type="url"/>
-                        <TextField defaultValue={defaultProject?.liveUrl} inputRef={urlRef} variant="filled" label="Live URL" fullWidth type="url"/>
+                        <TextField inputRef={githubRef} variant="filled" label="Github" fullWidth type="url" />
+                        <TextField inputRef={urlRef} variant="filled" label="Live URL" fullWidth type="url" />
                     </div>
                 </section>
                 <TextField
@@ -95,21 +89,18 @@ const NewProject = (props: NewProjectProps) => {
                     inputRef={descRef}
                     variant="outlined"
                     label="Description"
-                    placeholder="Project description" 
-                    defaultValue={defaultProject?.description} />
+                    placeholder="Project description" />
                 <Button variant="contained" type="submit">Submit</Button>
             </fieldset>
             <Modal aria-labelledby="Image picker" aria-describedby="select image"
                 className="md:p-10 md:px-20" open={showImagePicker} onClose={toggleImagePicker}>
                 <Box className="flex bg-white rounded flex-col outline-none p-5 dark:bg-zinc-800">
-                    <Typography className="text-violet-400 font-medium !text-2xl"gutterBottom component="h1">Image Picker</Typography>
-                    <ImagePicker onSelect={handleImageSelect}/>
+                    <Typography className="text-violet-400 font-medium !text-2xl" gutterBottom component="h1">Image Picker</Typography>
+                    <ImagePicker onSelect={handleImageSelect} />
                 </Box>
             </Modal>
-            <FullCircularProgress show={fetching}/>
+            <FullCircularProgress show={fetching} />
         </Box>
         // <ImageUpload />
     );
 }
-
-export default NewProject;
