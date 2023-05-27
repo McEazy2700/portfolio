@@ -219,7 +219,7 @@ export type ProjectsQueryVariables = Exact<{
 }>;
 
 
-export type ProjectsQuery = { __typename?: 'Query', projects: { __typename?: 'ProjectTypePaginatedList', total: number, count: number, data: Array<{ __typename?: 'ProjectType', id: string, title: string, description: string, github?: string | null, liveUrl?: string | null, images?: Array<{ __typename?: 'ImageType', url: string, description: string, id: string }> | null }> } };
+export type ProjectsQuery = { __typename?: 'Query', projects: { __typename?: 'ProjectTypePaginatedList', total: number, count: number, data: Array<{ __typename?: 'ProjectType', id: string, title: string, description: string, github?: string | null, dateAdded: string, liveUrl?: string | null, images?: Array<{ __typename?: 'ImageType', url: string, description: string, id: string }> | null }> } };
 
 export type NewProjectMutationVariables = Exact<{
   input: ProjectInput;
@@ -263,6 +263,7 @@ export const ProjectsDocument = gql`
       title
       description
       github
+      dateAdded
       liveUrl
       images {
         url

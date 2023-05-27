@@ -2,6 +2,7 @@
 import SidebarLink from "@/components/common/links/SidebarLink";
 import IconLink from "@/components/common/links/IconLink";
 import PageLink from "@/components/common/links/PageLink";
+import SocialLinks from "@/components/common/links/SocialLinks";
 
 /***************** Containers *********************/
 import Page from "@/components/common/containers/Page";
@@ -32,13 +33,21 @@ import TimedAlert from "@/components/common/feedback/alert/TimedAlert";
 
 /******************* Projects *********************/
 import ProjectList from "@/components/common/projects/ProjectList";
+import ProjectCard from "@/components/common/projects/ProjectCard";
+
+/******************* Cards ************************/
+import DoingsCard from "@/components/common/cards/DoingsCard";
+
+/******************* Contact **********************/
+import EmailForm from "@/components/common/contact/EmailForm";
 
 
 export {
     /*** Logo ***/
     RoundLogo, InlineLogo,
 
-    SidebarLink, SidebarDiv,
+    /*** Links ***/
+    SidebarLink, SidebarDiv, SocialLinks,
     FadeSpan, IconLink, PageLink, Page,
 
     /*** Inputs ***/
@@ -51,5 +60,11 @@ export {
     FullLoadingLogo,
 
     /*** Projects ***/
-    ProjectList,
+    ProjectList, ProjectCard,
+
+    /*** Cards ***/
+    DoingsCard,
+
+    /*** Contact ***/
+    EmailForm,
 };

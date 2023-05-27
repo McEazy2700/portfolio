@@ -1,6 +1,5 @@
 import React from "react";
-import { socials } from "@/constants/socials";
-import { IconLink, Page, PageLink } from "@/components/common";
+import { Page, PageLink, SocialLinks } from "@/components/common";
 import { ComputerCanvas } from "@/components/3d";
 
 export default function Home() {
@@ -17,14 +16,12 @@ export default function Home() {
                         I build intuitive solutions to tackle everyday challenges.
                     </p>
                 </div>
-                <ul className="flex gap-5">
-                    {socials.map(social => <IconLink key={social.name} title={social.name} href={social.link} icon={social.icon} />)}
-                </ul>
+                <SocialLinks />
             </div>
             <div className="flex-1 w-full">
                 <ComputerCanvas />
             </div>
-            <PageLink href="/projects" name="Projects"/>
+            <PageLink href="/about" name="About"/>
         </Page>
     )
 }

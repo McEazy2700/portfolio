@@ -19,6 +19,7 @@ query Projects ($options: NoneTypePageOptions) {
       title
       description
       github
+      dateAdded
       liveUrl
       images {
         url
