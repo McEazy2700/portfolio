@@ -6,7 +6,7 @@ interface Tokens {
 }
 
 export function getTokens(): Tokens {
-    const token = localStorage.getItem("token")
-    const refreshToken = localStorage.getItem("refresh")
+    const token = typeof window !== "undefined" ? localStorage.getItem("token") : null
+    const refreshToken = typeof window !== "undefined" ? localStorage.getItem("refresh") : null
     return { token, refreshToken }
 }
