@@ -1,4 +1,4 @@
-import AdminQueryProvider from "@/graphql/admin/config";
+import QueryProvider from "@/graphql/config";
 
 
-export { AdminQueryProvider };
+export { QueryProvider };

@@ -17,7 +17,7 @@ interface AdminClientProps {
     children?: React.ReactNode;
 }
 
-export default function AdminQueryProvider(props: AdminClientProps) {
+export default function QueryProvider(props: AdminClientProps) {
     const { children } = props;
     return (
         <Provider value={client}>

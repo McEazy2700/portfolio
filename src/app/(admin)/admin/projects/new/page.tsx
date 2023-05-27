@@ -44,7 +44,7 @@ export default function NewProject() {
     return (
         <Box onSubmit={handleSubmit} className="relative p-4" component="form">
             {data?.newProject.success && <TimedAlert after={onSuccess}>Project Created</TimedAlert>}
-            {error && <TimedAlert variant={AlertVariants.ERROR}>{error.message}</TimedAlert>}
+            {error && <TimedAlert duration={8000} variant={AlertVariants.ERROR}>{error.message}</TimedAlert>}
             <fieldset className="flex bg-gray-500/5 rounded border dark:border-gray-600/5 border-black/5 flex-col gap-3 p-4">
                 <legend className="text-violet-500 font-semibold text-xl bg-white p-1 px-2 dark:bg-zinc-900 rounded border dark:border-gray-400/5 border-black/5">New Project</legend>
                 <TextField
@@ -73,7 +73,7 @@ export default function NewProject() {
                         </ImageListItem>
                     </ImageList>
                 </section>
-                <section className="border flex-col flex gap-1 border-white/10 rounded p-1">
+                <section className="border flex-col flex gap-1 border-black/5 dark:border-white/10 rounded p-1">
                     <Typography gutterBottom className="p-1 px-2 text-violet-400" component="h2">URLs</Typography>
                     <div className="flex gap-1">
                         <TextField inputRef={githubRef} variant="filled" label="Github" fullWidth type="url" />
@@ -93,7 +93,7 @@ export default function NewProject() {
                 <Button variant="contained" type="submit">Submit</Button>
             </fieldset>
             <Modal aria-labelledby="Image picker" aria-describedby="select image"
-                className="md:p-10 md:px-20" open={showImagePicker} onClose={toggleImagePicker}>
+                className="p-4 py-7 max-h-[95vh] overflow-auto md:p-10 md:px-20" open={showImagePicker} onClose={toggleImagePicker}>
                 <Box className="flex bg-white rounded flex-col outline-none p-5 dark:bg-zinc-800">
                     <Typography className="text-violet-400 font-medium !text-2xl" gutterBottom component="h1">Image Picker</Typography>
                     <ImagePicker onSelect={handleImageSelect} />

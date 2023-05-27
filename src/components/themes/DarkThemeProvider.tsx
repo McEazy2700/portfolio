@@ -2,7 +2,6 @@
 import React from "react";
 import { ThemeOptions, ThemeProvider, createTheme } from '@mui/material/styles';
 import { Button, CssBaseline, PaletteMode } from "@mui/material";
-import { IconButton } from "@mui/material";
 import { MdBrightness7, MdBrightness4 } from "react-icons/md";
 
 
@@ -54,7 +53,7 @@ export default function DarkThemeProvider(props: ThemeProps) {
         <ThemeProvider theme={theme}>
             <html className={mode} lang="en">
                 <CssBaseline />
-                <body className="z-0 min-h-screen relative">
+                <body className="text-black dark:text-white z-0 min-h-screen relative">
                     {children}
                     <ToggleThemeButton mode={mode} toggle={toggleMode} />
                 </body>

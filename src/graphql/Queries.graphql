@@ -9,3 +9,23 @@ query Images($options: ImageFilterPageOptions) {
     }
   }
 }
+
+query Projects ($options: NoneTypePageOptions) {
+  projects(options: $options) {
+    total
+    count
+    data {
+      id
+      title
+      description
+      github
+      dateAdded
+      liveUrl
+      images {
+        url
+        description
+        id
+      }
+    }
+  }
+}

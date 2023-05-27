@@ -1,5 +1,7 @@
+import ReduxProvider from "@/GlobalRedux/provider";
+import { AdminSidebarLayout } from "@/components/admin";
 import { DarkThemeProvider } from "@/components/themes";
-import { AdminQueryProvider } from "@/graphql/admin";
+import { QueryProvider } from "@/graphql/admin";
 
 export const metadata = {
     title: "Admin - DashBoard",
@@ -13,10 +15,14 @@ interface AdminLayoutProps {
 export default function AdminLayout(props: AdminLayoutProps) {
     const { children } = props;
     return (
-        <AdminQueryProvider>
-            <DarkThemeProvider>
-                { children }
-            </DarkThemeProvider>
-        </AdminQueryProvider>
+        <QueryProvider>
+            <ReduxProvider>
+                <DarkThemeProvider>
+                    <AdminSidebarLayout>
+                        {children}
+                    </AdminSidebarLayout>
+                </DarkThemeProvider>
+            </ReduxProvider>
+        </QueryProvider>
     );
 }

@@ -6,7 +6,8 @@ import { ImageType, useImagesQuery } from "@/graphql/codegen/generated";
 import { Button, ImageList, ImageListItem, TextField } from "@mui/material";
 import { FaFilter } from "react-icons/fa";
 import FullCircularProgress from "../feedback/loading/FullCircularProgress";
-import ImagePickerItem from "./ImagePickerItem";
+import { ImagePickerItem, TimedAlert } from "@/components/common";
+import { AlertVariants } from "../feedback/alert/TimedAlert";
 
 const QUERY_LIMIT = 20
 
@@ -17,9 +18,31 @@ interface ImagePickerProps {
 export default function ImagePicker(props: ImagePickerProps) {
     const { onSelect } = props;
     const images = useAppSelector(selectImages);
-    const [{ fetching, data, error }, refetch] = useImagesQuery({ variables: { options: { offset: images.count, limit: QUERY_LIMIT } } })
-
+    const [description, setDescription] = React.useState<string>();
     const dispatch = useAppDispatch();
+    const [{ fetching, data, error }, refetch] = useImagesQuery({
+        variables: {
+            options: {
+                offset: images.count, limit: QUERY_LIMIT, filter: {
+                    description
+                }
+            }
+        }
+    })
+
+    console.log(error?.message)
+
+    const filteredImages = React.useMemo(() => (
+        images.images.filter(image => image.description.includes(description ?? ""))
+    ), [images, description])
+
+    const handleDescriptionChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+        setDescription(e.target.value)
+    }
+
+    const handleRefetch = () => {
+        refetch({ requestPolicy: "network-only" })
+    }
 
     React.useEffect(() => {
         if (data?.images.data) {
@@ -29,14 +52,23 @@ export default function ImagePicker(props: ImagePickerProps) {
 
     return (
         <div className="flex flex-col gap-2">
+            {error && <TimedAlert variant={AlertVariants.ERROR} duration={8000}>{error.message}</TimedAlert>}
             <div className="flex gap-1">
-                <TextField size="small" fullWidth label="Filter" placeholder="Image description"/>
-                <Button className="w-fit" title="Filter" variant="contained" color="secondary"><FaFilter size={20}/></Button>
+                <TextField onChange={handleDescriptionChange}
+                    size="small" fullWidth label="Filter" placeholder="Image description" />
+                <Button
+                    type="button"
+                    title="Filter"
+                    className="w-fit"
+                    onClick={handleRefetch}
+                    variant="contained" color="secondary">
+                    <FaFilter size={20} />
+                </Button>
             </div>
-            <ImageList variant="quilted" className="relative h-fit min-h-[70vh] rounded w-full bg-gray-300/20" cols={4} rowHeight={200}>
-                {images.images.map(image => (
+            <ImageList variant="quilted" className="relative border !border-black/5 h-fit min-h-[70vh] rounded w-full bg-gray-300/20" cols={3} rowHeight={200}>
+                {filteredImages.map(image => (
                     <ImageListItem className="h-full p-1" key={image.id}>
-                        <ImagePickerItem onSelect={onSelect} image={image}/>
+                        <ImagePickerItem onSelect={onSelect} image={image} />
                     </ImageListItem>
                 ))}
                 <FullCircularProgress show={fetching} />
