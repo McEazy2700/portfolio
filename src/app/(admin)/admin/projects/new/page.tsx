@@ -94,10 +94,10 @@ export default function NewProject() {
             </fieldset>
             <Modal aria-labelledby="Image picker" aria-describedby="select image"
                 className="p-4 py-7 max-h-[95vh] overflow-auto md:p-10 md:px-20" open={showImagePicker} onClose={toggleImagePicker}>
-                <Box className="flex bg-white rounded flex-col outline-none p-5 dark:bg-zinc-800">
+                <div className="flex bg-white rounded flex-col outline-none p-5 dark:bg-zinc-800">
                     <Typography className="text-violet-400 font-medium !text-2xl" gutterBottom component="h1">Image Picker</Typography>
                     <ImagePicker onSelect={handleImageSelect} />
-                </Box>
+                </div>
             </Modal>
             <FullCircularProgress show={fetching} />
         </Box>
