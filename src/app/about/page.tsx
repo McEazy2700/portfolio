@@ -7,10 +7,10 @@ import doings from "@/constants/doings";
 export default function About() {
 
     return (
-        <Page>
-            <div className="gap-3 flex flex-col lg:flex-row">
+        <Page className="lg:flex-col">
+            <h1 className="text-4xl font-extrabold">About Me</h1>
+            <div className="grid grid-cols-1 justify-between gap-9 lg:grid-cols-2 w-full">
                 <motion.div className="flex flex-col gap-5 flex-1" variants={textVariant()}>
-                    <h1 className="text-4xl font-extrabold">About Me</h1>
                     <motion.div className={`
                         flex flex-col bg-violet-500/5 p-3 rounded
                         border border-blue-500/5 gap-2`} variants={fadeIn("", "", 0.1, 1)}>
@@ -43,11 +43,14 @@ export default function About() {
                         </p>
                     </div>
                 </motion.div>
-                <div className="flex-1 h-full flex w-full flex-wrap gap-3 justify-center lg:pt-[3.7rem]">
-                    {doings.map((doing, index) => <DoingsCard key={doing.title} index={index} doing={doing} />)}
+                <div className="flex-1 flex flex-col gap-3">
+                    <h2 className="font-semibold text-violet-600 text-xl">Tool belt</h2>
+                    <ul className="grid grid-cols-2 h-fit justify-items-center content-center gap-2">
+                        {doings.map((doing, index) => <DoingsCard key={doing.title} index={index} doing={doing} />)}
+                    </ul>
                 </div>
             </div>
-            <PageLink href="/"  name="Home" left/>
+            <PageLink href="/" name="Home" left />
             <PageLink href="/projects" name="Projects" />
         </Page>
     );

@@ -35,7 +35,7 @@ export default function EmailForm() {
             {success && <TimedAlert>Email Sent</TimedAlert>}
             {error && <TimedAlert duration={7000} variant={AlertVariants.ERROR}>{error}</TimedAlert>}
             <legend className="font-semibold text-violet-600 text-2xl">Say Hi</legend>
-            <fieldset className="flex gap-2">
+            <fieldset className="flex flex-col md:flex-row gap-2">
                 <TextField color="primary" required type="text" placeholder="Sender name" variant="filled" fullWidth label="Name" name="name" />
                 <TextField color="primary" required type="email" placeholder="Sender email" variant="filled" fullWidth label="Email" name="email" />
             </fieldset>

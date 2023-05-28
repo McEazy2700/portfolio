@@ -30,7 +30,7 @@ export default function RootLayout(props: RootLayoutType) {
                         <DarkThemeProvider>
                             <Sidebar />
                             <main className={`relative font-normal px-5 p-10 lg:p-28 lg:px-32 ${font.className}`}>
-                                <div className="absolute inset-0 bg-heroPattern bg-cover z-[-1000] bg-no-repeat opacity-20"/>
+                                <div className="absolute min-h-screen inset-0 bg-heroPattern bg-cover z-[-1000] bg-no-repeat opacity-20"/>
                                 {children}
                             </main>
                         </DarkThemeProvider>
