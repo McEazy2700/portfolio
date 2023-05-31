@@ -1,10 +1,10 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import ReduxProvider from "@redux/provider";
-import Sidebar from "@/components/common/sidebar/Sidebar";
 import { DarkThemeProvider } from '@/components/themes';
 import QueryProvider from '@/graphql/config';
 import Head from 'next/head';
+import { SidebarLayout } from '@/components/layouts';
 
 const font = Inter({ weight: ["900", "700", "400", "300"], subsets: ["latin"] })
 
@@ -28,11 +28,12 @@ export default function RootLayout(props: RootLayoutType) {
                 <ReduxProvider>
                     <body className={font.className}>
                         <DarkThemeProvider>
-                            <Sidebar />
-                            <main className={`relative font-normal px-5 p-10 lg:p-28 lg:px-32 ${font.className}`}>
-                                <div className="absolute min-h-screen inset-0 bg-heroPattern bg-cover z-[-1000] bg-no-repeat opacity-20"/>
-                                {children}
-                            </main>
+                            <SidebarLayout>
+                                <main className={`relative font-normal px-5 p-10 lg:p-28 lg:px-32 ${font.className}`}>
+                                    <div className="absolute min-h-screen inset-0 bg-heroPattern bg-cover z-[-1000] bg-no-repeat opacity-20" />
+                                    {children}
+                                </main>
+                            </SidebarLayout>
                         </DarkThemeProvider>
                     </body>
                 </ReduxProvider>
