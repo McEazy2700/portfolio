@@ -68,7 +68,7 @@ export default function ImagePicker(props: ImagePickerProps) {
                 <Button
                     type="button"
                     title="Add new image"
-                    className="w-fit"
+                    className="w-fit whitespace-nowrap"
                     onClick={toggleImageUpload}
                     variant="outlined" color="secondary">
                     + New Image
