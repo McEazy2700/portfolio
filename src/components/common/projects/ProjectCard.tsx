@@ -12,7 +12,8 @@ interface ProjectCartProps {
 
 export default function ProjectCard(props: ProjectCartProps) {
     const { project, admin } = props;
-    const slug = `${project.id}-${project.title}`
+    const title = project.title.split(" ").join("-")
+    const slug = `${project.id}-${title}`
     return (
         <Link className="group" href={admin ? `/admin/projects/${slug}` : "#"}>
             <motion.div

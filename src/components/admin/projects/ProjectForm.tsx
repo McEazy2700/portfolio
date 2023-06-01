@@ -47,7 +47,7 @@ export default function ProjectForm(props: ProjectFormProps) {
                 description: descRef.current.value,
                 imageIds: Array.from(images).map(image => parseInt(image.id)),
                 github: githubRef.current.value,
-                liveUrl: githubRef.current.value,
+                liveUrl: urlRef.current.value,
                 id: defaults?.id ? defaults.id : null
             }
         })
