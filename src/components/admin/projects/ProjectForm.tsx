@@ -40,6 +40,7 @@ export default function ProjectForm(props: ProjectFormProps) {
                 imageIds: Array.from(images).map(image => parseInt(image.id)),
                 github: githubRef.current.value,
                 liveUrl: githubRef.current.value,
+                id: defaultProject?.id
             }
         })
     }
