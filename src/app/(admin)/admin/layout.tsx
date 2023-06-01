@@ -1,5 +1,5 @@
 import ReduxProvider from "@/GlobalRedux/provider";
-import { AdminSidebarLayout } from "@/components/admin";
+import { AdminNavLayout } from "@/components/admin";
 import { DarkThemeProvider } from "@/components/themes";
 import { QueryProvider } from "@/graphql/admin";
 
@@ -18,9 +18,9 @@ export default function AdminLayout(props: AdminLayoutProps) {
         <QueryProvider>
             <ReduxProvider>
                 <DarkThemeProvider>
-                    <AdminSidebarLayout>
+                    <AdminNavLayout>
                         {children}
-                    </AdminSidebarLayout>
+                    </AdminNavLayout>
                 </DarkThemeProvider>
             </ReduxProvider>
         </QueryProvider>

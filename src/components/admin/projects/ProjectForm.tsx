@@ -2,7 +2,7 @@
 import { FullCircularProgress, ImagePicker, TimedAlert } from "@/components/common";
 import { AlertVariants } from "@/components/common/feedback/alert/TimedAlert";
 import { ImageType, ProjectType, useCreateUpdateProjectMutation } from "@/graphql/codegen/generated";
-import { Box, Button, ImageList, ImageListItem, Modal, TextField, Typography } from "@mui/material";
+import { Box, Button, ImageList, ImageListItem, Modal, TextField, Typography, useMediaQuery } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -22,6 +22,8 @@ export default function ProjectForm(props: ProjectFormProps) {
     const githubRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
     const urlRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
     const router = useRouter();
+
+    const isMedium = useMediaQuery("(min-width: 640px)")
 
 
     const toggleImagePicker = () => setShowImagePicker(curr => !curr);
@@ -63,7 +65,7 @@ export default function ProjectForm(props: ProjectFormProps) {
                     placeholder="My new project" />
                 <section className="border border-white/10 rounded p-1">
                     <Typography gutterBottom className="p-1 px-2 text-violet-400" component="h2">Images</Typography>
-                    <ImageList cols={3} rowHeight={250}>
+                    <ImageList cols={!isMedium ? 1 : 3} rowHeight={250}>
                         {images && Array.from(images).map(image => (
                             <ImageListItem key={image.id}>
                                 <Image
@@ -81,7 +83,7 @@ export default function ProjectForm(props: ProjectFormProps) {
                 </section>
                 <section className="border flex-col flex gap-1 border-black/5 dark:border-white/10 rounded p-1">
                     <Typography gutterBottom className="p-1 px-2 text-violet-400" component="h2">URLs</Typography>
-                    <div className="flex gap-1">
+                    <div className="flex flex-col md:flex-row gap-2">
                         <TextField defaultValue={defaultProject?.github} inputRef={githubRef} variant="filled" label="Github" fullWidth type="url" />
                         <TextField defaultValue={defaultProject?.liveUrl} inputRef={urlRef} variant="filled" label="Live URL" fullWidth type="url" />
                     </div>

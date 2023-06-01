@@ -1,6 +1,8 @@
-import AdminSideBar from "@/components/admin/sidebar/AdminSideBar";
-import AdminSidebarLayout from "@/components/admin/layouts/AdminSidebarLayout";
-import AdminSidebarLink from "@/components/admin/sidebar/AdminSidebarLink";
+import AdminSideBar from "@/components/admin/nav/AdminSideBar";
+import AdminNavLayout from "@/components/admin/layouts/AdminNavLayout";
+import AdminNavBar from "@/components/admin/nav/AdminNavBar";
+import AdminSidebarLink from "@/components/admin/nav/AdminSidebarLink";
+import AdminNavBarLink from "@/components/admin/nav/AdminNavBarLink";
 import ProjectForm from "@/components/admin/projects/ProjectForm";
 
-export { AdminSideBar, AdminSidebarLayout, AdminSidebarLink, ProjectForm }
+export { AdminSideBar, AdminNavLayout, AdminSidebarLink, ProjectForm, AdminNavBar, AdminNavBarLink }
