@@ -52,12 +52,12 @@ export default function ProjectCard(props: ProjectCartProps) {
                 </section>
                 <section className="absolute flex gap-1 top-1 w-fit p-0.1 right-1">
                     {project.github && (
-                        <Link title="Github" className={`
+                        <Link target="_blank" title="Github" className={`
                                     bg-blue-500/10 border flex items-center
                                     aspect-square border-blue-300/10 p-1 rounded text-blue-500
                             `} href={project.github}><BsGithub size={20} /></Link>)}
                     {project.liveUrl && (
-                        <Link title="Live URL" className={`
+                        <Link target="_blank" title="Live URL" className={`
                                     bg-blue-500/10 border flex items-center
                                     aspect-square border-blue-300/10 p-1 rounded text-blue-500
                             `} href={project.liveUrl}><BsGlobe2 size={20} /></Link>)}
