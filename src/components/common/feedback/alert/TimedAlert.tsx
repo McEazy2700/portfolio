@@ -38,7 +38,7 @@ export default function TimedAlert(props: AlertProps) {
                     animate={{ opacity: 1, translateY: 0 }}
                     exit={{ opacity: 0, translateY: -10 }}
                     key={Math.random()}
-                    className="fixed h-11 top-3 !-translate-x-1/2 left-1/2 w-[97vw]">
+                    className="fixed z-[1000000] h-11 top-3 !-translate-x-1/2 left-1/2 w-[97vw]">
                     <Alert severity={alert.severtity}>
                         <AlertTitle>{alert.title}</AlertTitle>
                         {children}
