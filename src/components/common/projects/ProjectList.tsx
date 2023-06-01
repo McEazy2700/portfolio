@@ -5,7 +5,12 @@ import { AlertVariants } from "../feedback/alert/TimedAlert";
 import { Timeline, TimelineConnector, TimelineContent, TimelineDot, TimelineItem, TimelineSeparator, timelineContentClasses } from "@mui/lab";
 import { useMediaQuery } from "@mui/material";
 
-export default function ProjectList() {
+interface ProjectListProps {
+    admin?: boolean;
+}
+
+export default function ProjectList(props: ProjectListProps) {
+    const { admin } = props;
     const [{ fetching, data, error }] = useProjectsQuery();
     const isLarge = useMediaQuery("(min-width: 768px)")
 
@@ -22,7 +27,7 @@ export default function ProjectList() {
                             <TimelineConnector/>
                         </TimelineSeparator>
                         <TimelineContent>
-                            <ProjectCard key={project.id} project={project} />
+                            <ProjectCard admin={admin} key={project.id} project={project} />
                         </TimelineContent>
                     </TimelineItem>
                 ))}
