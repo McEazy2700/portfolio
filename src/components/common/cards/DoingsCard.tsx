@@ -35,12 +35,15 @@ function DoingTool(props: ImageItemType & {index: number}) {
     return (
         <motion.div
             className={`
-            flex items-center shadow shadow-black/30 max-w-[3rem] overflow-hidden
+            flex items-center shadow shadow-black/30 max-w-[3rem] relative
             dark:shadow-white/20 justify-center flex-col gap-1 bg-gradient-to-br
-            from-violet-500/20 to-blue-500/20 via-purple-500/70
-            border border-blue-500/20 rounded p-1`}>
+            from-violet-500/20 to-blue-500/20 via-purple-500/70 group
+            border border-blue-500/20 rounded p-1 even:flex-col-reverse`}>
             <Image className="w-8 aspect-square" src={url} alt={alt ?? name} width="100" height="100" />
-            <span className="text-xs text-black/70 dark:text-white/70">{name}</span>
+            <span className={`
+                text-xs text-black/70 dark:text-white/70 absolute bottom-0
+                translate-y-5 group-even:top-0 group-even:-translate-y-5
+            `}>{name}</span>
         </motion.div>
     );
 }
