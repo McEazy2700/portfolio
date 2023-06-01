@@ -46,7 +46,7 @@ export default function ProjectCard(props: ProjectCartProps) {
                 `}>{project.title}</h3>
                     <div className="w-full h-[1px] dark:bg-white/5 bg-black/5" />
                     <p className={`
-                    flex-1 text-xs md:text-base line-clamp-3 pb-3
+                    flex-1 text-xs md:text-base line-clamp-5 md:line-clamp-3 pb-3
                     font-medium dark:text-white/60 italic`}>{project.description}</p>
                 </section>
                 <section className="absolute flex gap-1 top-1 w-fit p-0.1 right-1">
