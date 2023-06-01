@@ -1,7 +1,7 @@
 "use client"
 import { FullCircularProgress, ImagePicker, TimedAlert } from "@/components/common";
 import { AlertVariants } from "@/components/common/feedback/alert/TimedAlert";
-import { ImageType, ProjectType, useNewProjectMutation } from "@/graphql/codegen/generated";
+import { ImageType, ProjectType, useCreateUpdateProjectMutation } from "@/graphql/codegen/generated";
 import { Box, Button, ImageList, ImageListItem, Modal, TextField, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -14,7 +14,7 @@ interface ProjectFormProps {
 
 export default function ProjectForm(props: ProjectFormProps) {
     const { defaultProject } = props
-    const [{ data, fetching, error }, mutate] = useNewProjectMutation();
+    const [{ data, fetching, error }, mutate] = useCreateUpdateProjectMutation();
     const [images, setImages] = React.useState<Set<ImageType>>(new Set(defaultProject?.images));
     const [showImagePicker, setShowImagePicker] = React.useState(false);
     const titleRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
@@ -40,7 +40,7 @@ export default function ProjectForm(props: ProjectFormProps) {
                 imageIds: Array.from(images).map(image => parseInt(image.id)),
                 github: githubRef.current.value,
                 liveUrl: githubRef.current.value,
-                id: defaultProject?.id
+                id: defaultProject?.id ? defaultProject.id : null
             }
         })
     }
@@ -48,7 +48,7 @@ export default function ProjectForm(props: ProjectFormProps) {
     const onSuccess = () => router.replace("/admin/projects");
     return (
         <Box onSubmit={handleSubmit} className="relative p-4" component="form">
-            {data?.newProject.success && <TimedAlert after={onSuccess}>Project Saved</TimedAlert>}
+            {data?.project.success && <TimedAlert after={onSuccess}>Project Saved</TimedAlert>}
             {error && <TimedAlert duration={8000} variant={AlertVariants.ERROR}>{error.message}</TimedAlert>}
             <fieldset className="flex bg-gray-500/5 rounded border dark:border-gray-600/5 border-black/5 flex-col gap-3 p-4">
                 <legend className="text-violet-500 font-semibold text-xl bg-white p-1 px-2 dark:bg-zinc-900 rounded border dark:border-gray-400/5 border-black/5">New Project</legend>

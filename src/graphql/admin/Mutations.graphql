@@ -1,9 +1,8 @@
-mutation NewProject($input: ProjectInput!) {
-  newProject(input: $input) {
+mutation CreateUpdateProject($input: ProjectInput!) {
+  project: createUpdateProject(input: $input) {
     success
     data {
       id
-      title
     }
   }
 }

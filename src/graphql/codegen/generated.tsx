@@ -77,10 +77,15 @@ export type LoginSuccess = {
 
 export type Mutation = {
   __typename?: 'Mutation';
+  createUpdateProject: ProjectTypeSuccess;
   login: LoginSuccess;
   newImage: ImageTypeSuccess;
-  newProject: ProjectTypeSuccess;
   register: UserTypeSuccess;
+};
+
+
+export type MutationCreateUpdateProjectArgs = {
+  input: ProjectInput;
 };
 
 
@@ -91,11 +96,6 @@ export type MutationLoginArgs = {
 
 export type MutationNewImageArgs = {
   input: ImageInput;
-};
-
-
-export type MutationNewProjectArgs = {
-  input: ProjectInput;
 };
 
 
@@ -122,7 +122,7 @@ export type ProfileType = {
 export type ProjectInput = {
   description?: InputMaybe<Scalars['String']>;
   github?: InputMaybe<Scalars['String']>;
-  id?: InputMaybe<Scalars['ID']>;
+  id?: InputMaybe<Scalars['Int']>;
   imageIds?: InputMaybe<Array<Scalars['Int']>>;
   liveUrl?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
@@ -133,7 +133,7 @@ export type ProjectType = {
   dateAdded: Scalars['String'];
   description: Scalars['String'];
   github?: Maybe<Scalars['String']>;
-  id: Scalars['ID'];
+  id: Scalars['Int'];
   images?: Maybe<Array<ImageType>>;
   liveUrl?: Maybe<Scalars['String']>;
   title: Scalars['String'];
@@ -219,21 +219,21 @@ export type ProjectsQueryVariables = Exact<{
 }>;
 
 
-export type ProjectsQuery = { __typename?: 'Query', projects: { __typename?: 'ProjectTypePaginatedList', total: number, count: number, data: Array<{ __typename?: 'ProjectType', id: string, title: string, description: string, github?: string | null, dateAdded: string, liveUrl?: string | null, images?: Array<{ __typename?: 'ImageType', url: string, description: string, id: string }> | null }> } };
+export type ProjectsQuery = { __typename?: 'Query', projects: { __typename?: 'ProjectTypePaginatedList', total: number, count: number, data: Array<{ __typename?: 'ProjectType', id: number, title: string, description: string, github?: string | null, dateAdded: string, liveUrl?: string | null, images?: Array<{ __typename?: 'ImageType', url: string, description: string, id: string }> | null }> } };
 
 export type ProjectQueryVariables = Exact<{
   id: Scalars['Int'];
 }>;
 
 
-export type ProjectQuery = { __typename?: 'Query', project: { __typename?: 'ProjectType', id: string, title: string, github?: string | null, liveUrl?: string | null, description: string, dateAdded: string, images?: Array<{ __typename?: 'ImageType', url: string, description: string, id: string }> | null } };
+export type ProjectQuery = { __typename?: 'Query', project: { __typename?: 'ProjectType', id: number, title: string, github?: string | null, liveUrl?: string | null, description: string, dateAdded: string, images?: Array<{ __typename?: 'ImageType', url: string, description: string, id: string }> | null } };
 
-export type NewProjectMutationVariables = Exact<{
+export type CreateUpdateProjectMutationVariables = Exact<{
   input: ProjectInput;
 }>;
 
 
-export type NewProjectMutation = { __typename?: 'Mutation', newProject: { __typename?: 'ProjectTypeSuccess', success: boolean, data: { __typename?: 'ProjectType', id: string, title: string } } };
+export type CreateUpdateProjectMutation = { __typename?: 'Mutation', project: { __typename?: 'ProjectTypeSuccess', success: boolean, data: { __typename?: 'ProjectType', id: number } } };
 
 export type NewImageMutationVariables = Exact<{
   input: ImageInput;
@@ -306,20 +306,19 @@ export const ProjectDocument = gql`
 export function useProjectQuery(options: Omit<Urql.UseQueryArgs<ProjectQueryVariables>, 'query'>) {
   return Urql.useQuery<ProjectQuery, ProjectQueryVariables>({ query: ProjectDocument, ...options });
 };
-export const NewProjectDocument = gql`
-    mutation NewProject($input: ProjectInput!) {
-  newProject(input: $input) {
+export const CreateUpdateProjectDocument = gql`
+    mutation CreateUpdateProject($input: ProjectInput!) {
+  project: createUpdateProject(input: $input) {
     success
     data {
       id
-      title
     }
   }
 }
     `;
 
-export function useNewProjectMutation() {
-  return Urql.useMutation<NewProjectMutation, NewProjectMutationVariables>(NewProjectDocument);
+export function useCreateUpdateProjectMutation() {
+  return Urql.useMutation<CreateUpdateProjectMutation, CreateUpdateProjectMutationVariables>(CreateUpdateProjectDocument);
 };
 export const NewImageDocument = gql`
     mutation NewImage($input: ImageInput!) {
