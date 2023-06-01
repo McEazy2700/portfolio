@@ -49,7 +49,7 @@ export default function ProjectForm(props: ProjectFormProps) {
 
     const onSuccess = () => router.replace("/admin/projects");
     return (
-        <Box onSubmit={handleSubmit} className="relative p-4" component="form">
+        <Box onSubmit={handleSubmit} className="relative p-1 md:p-4" component="form">
             {data?.project.success && <TimedAlert after={onSuccess}>Project Saved</TimedAlert>}
             {error && <TimedAlert duration={8000} variant={AlertVariants.ERROR}>{error.message}</TimedAlert>}
             <fieldset className="flex bg-gray-500/5 rounded border dark:border-gray-600/5 border-black/5 flex-col gap-3 p-4">
