@@ -1,4 +1,6 @@
-import { Input, PreviewImage } from "@/components/common";
+"use client"
+import { PreviewImage } from "@/components/common";
+import { TextField } from "@mui/material";
 import React from "react";
 
 interface ImageUploadPreviewProps {
@@ -16,7 +18,7 @@ export default function ImageUploadPreview(props: ImageUploadPreviewProps) {
     return (
         <div className="relative">
             <PreviewImage src={imageUrl}/>
-            <Input onChange={handleTextChange} label="Description" variant="outlined"
+            <TextField onChange={handleTextChange} label="Description" variant="outlined"
                 className="absolute bottom-2 w-[95%] left-1/2 -translate-x-1/2"/>
         </div>
     );

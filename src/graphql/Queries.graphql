@@ -29,3 +29,19 @@ query Projects ($options: NoneTypePageOptions) {
     }
   }
 }
+
+query Project($id: Int!) {
+  project(id: $id) {
+    id
+    title
+    github
+    liveUrl
+    description
+    dateAdded
+    images {
+      url
+      description
+      id
+    }
+  }
+}

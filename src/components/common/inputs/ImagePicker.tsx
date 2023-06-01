@@ -45,6 +45,11 @@ export default function ImagePicker(props: ImagePickerProps) {
         refetch({ requestPolicy: "network-only" })
     }
 
+    const handleImageAddSuccess = () => {
+        toggleImageUpload()
+        handleRefetch()
+    }
+
     React.useEffect(() => {
         if (data?.images.data) {
             dispatch(addImages(data))
@@ -86,7 +91,7 @@ export default function ImagePicker(props: ImagePickerProps) {
                 className="p-4 py-7 max-h-[95vh] overflow-auto md:p-10 md:px-32" >
                 <div className="flex bg-white rounded flex-col outline-none p-5 dark:bg-zinc-800">
                     <Typography className="text-violet-400 font-medium !text-2xl" gutterBottom component="h1">Image Upload</Typography>
-                    <ImageUpload onSuccess={handleRefetch} />
+                    <ImageUpload onSuccess={handleImageAddSuccess} />
                 </div>
             </Modal>
         </div>

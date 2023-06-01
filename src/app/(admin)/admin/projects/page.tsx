@@ -1,3 +1,4 @@
+"use client"
 import { ProjectList } from "@/components/common";
 import Link from "next/link";
 

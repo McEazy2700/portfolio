@@ -221,6 +221,13 @@ export type ProjectsQueryVariables = Exact<{
 
 export type ProjectsQuery = { __typename?: 'Query', projects: { __typename?: 'ProjectTypePaginatedList', total: number, count: number, data: Array<{ __typename?: 'ProjectType', id: string, title: string, description: string, github?: string | null, dateAdded: string, liveUrl?: string | null, images?: Array<{ __typename?: 'ImageType', url: string, description: string, id: string }> | null }> } };
 
+export type ProjectQueryVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type ProjectQuery = { __typename?: 'Query', project: { __typename?: 'ProjectType', id: string, title: string, github?: string | null, liveUrl?: string | null, description: string, dateAdded: string, images?: Array<{ __typename?: 'ImageType', url: string, description: string, id: string }> | null } };
+
 export type NewProjectMutationVariables = Exact<{
   input: ProjectInput;
 }>;
@@ -277,6 +284,27 @@ export const ProjectsDocument = gql`
 
 export function useProjectsQuery(options?: Omit<Urql.UseQueryArgs<ProjectsQueryVariables>, 'query'>) {
   return Urql.useQuery<ProjectsQuery, ProjectsQueryVariables>({ query: ProjectsDocument, ...options });
+};
+export const ProjectDocument = gql`
+    query Project($id: Int!) {
+  project(id: $id) {
+    id
+    title
+    github
+    liveUrl
+    description
+    dateAdded
+    images {
+      url
+      description
+      id
+    }
+  }
+}
+    `;
+
+export function useProjectQuery(options: Omit<Urql.UseQueryArgs<ProjectQueryVariables>, 'query'>) {
+  return Urql.useQuery<ProjectQuery, ProjectQueryVariables>({ query: ProjectDocument, ...options });
 };
 export const NewProjectDocument = gql`
     mutation NewProject($input: ProjectInput!) {
