@@ -16,12 +16,18 @@ export default function ProjectForm(props: ProjectFormProps) {
     const { defaultProject } = props
     const [{ data, fetching, error }, mutate] = useCreateUpdateProjectMutation();
     const [images, setImages] = React.useState<Set<ImageType>>(new Set(defaultProject?.images));
+    const [defaults, setDefaults] = React.useState<ProjectType>();
     const [showImagePicker, setShowImagePicker] = React.useState(false);
     const titleRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
     const descRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
     const githubRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
     const urlRef = React.useRef() as React.MutableRefObject<HTMLInputElement>;
     const router = useRouter();
+
+    React.useEffect(() => {
+        setImages(new Set(defaultProject?.images))
+        setDefaults(defaultProject);
+    }, [defaultProject])
 
     const isMedium = useMediaQuery("(min-width: 640px)")
 
@@ -42,7 +48,7 @@ export default function ProjectForm(props: ProjectFormProps) {
                 imageIds: Array.from(images).map(image => parseInt(image.id)),
                 github: githubRef.current.value,
                 liveUrl: githubRef.current.value,
-                id: defaultProject?.id ? defaultProject.id : null
+                id: defaults?.id ? defaults.id : null
             }
         })
     }
@@ -59,7 +65,7 @@ export default function ProjectForm(props: ProjectFormProps) {
                     fullWidth
                     size="small"
                     inputRef={titleRef}
-                    defaultValue={defaultProject?.title}
+                    defaultValue={defaults?.title}
                     variant="filled"
                     label="Project title"
                     placeholder="My new project" />
@@ -84,8 +90,8 @@ export default function ProjectForm(props: ProjectFormProps) {
                 <section className="border flex-col flex gap-1 border-black/5 dark:border-white/10 rounded p-1">
                     <Typography gutterBottom className="p-1 px-2 text-violet-400" component="h2">URLs</Typography>
                     <div className="flex flex-col md:flex-row gap-2">
-                        <TextField defaultValue={defaultProject?.github} inputRef={githubRef} variant="filled" label="Github" fullWidth type="url" />
-                        <TextField defaultValue={defaultProject?.liveUrl} inputRef={urlRef} variant="filled" label="Live URL" fullWidth type="url" />
+                        <TextField defaultValue={defaults?.github} inputRef={githubRef} variant="filled" label="Github" fullWidth type="url" />
+                        <TextField defaultValue={defaults?.liveUrl} inputRef={urlRef} variant="filled" label="Live URL" fullWidth type="url" />
                     </div>
                 </section>
                 <TextField
@@ -97,7 +103,7 @@ export default function ProjectForm(props: ProjectFormProps) {
                     inputRef={descRef}
                     variant="outlined"
                     label="Description"
-                    defaultValue={defaultProject?.description}
+                    defaultValue={defaults?.description}
                     placeholder="Project description" />
                 <Button variant="contained" type="submit">Submit</Button>
             </fieldset>
