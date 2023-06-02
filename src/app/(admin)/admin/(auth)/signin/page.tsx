@@ -19,8 +19,6 @@ export default function SignInForm() {
 
     const handleLogin: React.FormEventHandler = (e) => {
         e.preventDefault()
-        console.log("email", emailRef.current.value)
-        console.log("password", passWdRef.current.value)
         login({
             input: {
                 email: emailRef.current.value,

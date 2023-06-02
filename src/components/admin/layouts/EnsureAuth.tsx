@@ -18,18 +18,22 @@ export default function EnsureAuth(props: { children?: React.ReactNode }) {
             mutate({ refreshToken }).then(res => {
                 const refresh = res.data?.refreshToken.data.refreshToken
                 const token = res.data?.refreshToken.data.token
-                setTokens(token ?? "", refresh ?? "")
+                if (refresh && token) {
+                    setTokens(token, refresh)
+                }
                 dispatch(setUser({ user: res.data?.refreshToken.data.user }))
             })
-            if (error) setTokenError(true)
+            if (error) {
+                setTokenError(true)
+            }
         } else {
             setTokenError(true)
         }
     }, [mutate, error, dispatch])
 
     React.useEffect(() => {
+        const intervalId = setInterval(refreshToken, 299900);
         refreshToken()
-        const intervalId = setInterval(refreshToken, 290000);
 
         return () => clearInterval(intervalId);
     }, [refreshToken])
