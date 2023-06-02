@@ -17,7 +17,7 @@ export default function AdminNavLayout(props: AdminLayoutProps) {
         <div className="z-0">
             {isLarge ? <AdminSideBar /> : <AdminNavBar />}
             <motion.div className="z-0"
-                animate={{ marginLeft: (isLarge && admin.navOpen) ? 270 : isLarge && !admin.navOpen ? 100 : "auto"}}
+                animate={{ marginLeft: (isLarge && admin.navOpen) ? 270 : isLarge && !admin.navOpen ? 100 : "auto" }}
             >{children}</motion.div>
         </div>
     );

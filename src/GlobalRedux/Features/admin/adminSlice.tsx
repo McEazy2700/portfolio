@@ -1,10 +1,30 @@
 import { RootState } from "@/GlobalRedux/store";
-import { UserType } from "@/graphql/codegen/generated";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+
+interface UserState {
+    user: {
+        __typename?: 'UserType',
+        id: number,
+        email: string,
+        profile: {
+            __typename?: 'ProfileType',
+            id: number,
+            firstName?: string | null,
+            lastName?: string | null,
+            bio?: string | null,
+            image?: {
+                __typename?: 'ImageType',
+                url: string,
+                description: string,
+                id: string
+            } | null
+        }
+    } | undefined
+}
 
 interface AdminState {
     navOpen: boolean;
-    user?: UserType,
+    user?: UserState,
 }
 
 const initialState: AdminState = {
@@ -19,7 +39,7 @@ const adminSlcie = createSlice({
         toggleNav: (state, action: PayloadAction<boolean>) => {
             return { ...state, navOpen: action.payload }
         },
-        setUser: (state, action: PayloadAction<UserType>) => {
+        setUser: (state, action: PayloadAction<UserState>) => {
             return { ...state, user: action.payload }
         }
     }

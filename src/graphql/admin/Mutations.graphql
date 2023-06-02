@@ -17,3 +17,53 @@ mutation NewImage($input: ImageInput!) {
     }
   }
 }
+
+mutation Login($input: LoginInput!) {
+  login(input: $input) {
+    success
+    data {
+      token
+      refreshToken
+      user {
+        id
+        email
+        profile {
+          id
+          firstName
+          lastName
+          bio
+          image {
+            url
+            description
+            id
+          }
+        }
+      }
+    }
+  }
+}
+
+mutation RefreshToken($refreshToken: String!) {
+  refreshToken(refreshToken: $refreshToken) {
+    success
+    data {
+      token
+      refreshToken
+      user {
+        id
+        email
+        profile {
+          id
+          firstName
+          lastName
+          bio
+          image {
+            url
+            description
+            id
+          }
+        }
+      }
+    }
+  }
+}

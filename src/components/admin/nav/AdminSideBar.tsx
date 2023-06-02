@@ -1,8 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import adminLinks from "@/app/(admin)/links";
+import { AdminSidebarLink } from "@/components/admin";
 import { RoundLogo } from "@/components/common";
-import AdminSidebarLink from "./AdminSidebarLink";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "@/GlobalRedux/hooks";
 import { selectAdmin, toggleNav } from "@/GlobalRedux/Features/admin/adminSlice";

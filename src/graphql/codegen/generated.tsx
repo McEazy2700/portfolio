@@ -80,6 +80,7 @@ export type Mutation = {
   createUpdateProject: ProjectTypeSuccess;
   login: LoginSuccess;
   newImage: ImageTypeSuccess;
+  refreshToken: TokenTypeSuccess;
   register: UserTypeSuccess;
 };
 
@@ -99,8 +100,14 @@ export type MutationNewImageArgs = {
 };
 
 
+export type MutationRefreshTokenArgs = {
+  refreshToken: Scalars['String'];
+};
+
+
 export type MutationRegisterArgs = {
   input: ResgisterInput;
+  secretCode: Scalars['String'];
 };
 
 export type NoneTypePageOptions = {
@@ -194,6 +201,19 @@ export type SubscriptionCountArgs = {
   target?: Scalars['Int'];
 };
 
+export type TokenType = {
+  __typename?: 'TokenType';
+  refreshToken: Scalars['String'];
+  token: Scalars['String'];
+  user: UserType;
+};
+
+export type TokenTypeSuccess = {
+  __typename?: 'TokenTypeSuccess';
+  data: TokenType;
+  success: Scalars['Boolean'];
+};
+
 export type UserType = {
   __typename?: 'UserType';
   email: Scalars['String'];
@@ -241,6 +261,20 @@ export type NewImageMutationVariables = Exact<{
 
 
 export type NewImageMutation = { __typename?: 'Mutation', newImage: { __typename?: 'ImageTypeSuccess', success: boolean, data: { __typename?: 'ImageType', url: string, description: string, id: string } } };
+
+export type LoginMutationVariables = Exact<{
+  input: LoginInput;
+}>;
+
+
+export type LoginMutation = { __typename?: 'Mutation', login: { __typename?: 'LoginSuccess', success: boolean, data: { __typename?: 'Login', token: string, refreshToken: string, user: { __typename?: 'UserType', id: number, email: string, profile: { __typename?: 'ProfileType', id: number, firstName?: string | null, lastName?: string | null, bio?: string | null, image?: { __typename?: 'ImageType', url: string, description: string, id: string } | null } } } } };
+
+export type RefreshTokenMutationVariables = Exact<{
+  refreshToken: Scalars['String'];
+}>;
+
+
+export type RefreshTokenMutation = { __typename?: 'Mutation', refreshToken: { __typename?: 'TokenTypeSuccess', success: boolean, data: { __typename?: 'TokenType', token: string, refreshToken: string, user: { __typename?: 'UserType', id: number, email: string, profile: { __typename?: 'ProfileType', id: number, firstName?: string | null, lastName?: string | null, bio?: string | null, image?: { __typename?: 'ImageType', url: string, description: string, id: string } | null } } } } };
 
 
 export const ImagesDocument = gql`
@@ -335,4 +369,64 @@ export const NewImageDocument = gql`
 
 export function useNewImageMutation() {
   return Urql.useMutation<NewImageMutation, NewImageMutationVariables>(NewImageDocument);
+};
+export const LoginDocument = gql`
+    mutation Login($input: LoginInput!) {
+  login(input: $input) {
+    success
+    data {
+      token
+      refreshToken
+      user {
+        id
+        email
+        profile {
+          id
+          firstName
+          lastName
+          bio
+          image {
+            url
+            description
+            id
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+export function useLoginMutation() {
+  return Urql.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument);
+};
+export const RefreshTokenDocument = gql`
+    mutation RefreshToken($refreshToken: String!) {
+  refreshToken(refreshToken: $refreshToken) {
+    success
+    data {
+      token
+      refreshToken
+      user {
+        id
+        email
+        profile {
+          id
+          firstName
+          lastName
+          bio
+          image {
+            url
+            description
+            id
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+
+export function useRefreshTokenMutation() {
+  return Urql.useMutation<RefreshTokenMutation, RefreshTokenMutationVariables>(RefreshTokenDocument);
 };

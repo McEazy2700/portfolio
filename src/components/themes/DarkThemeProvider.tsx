@@ -38,26 +38,25 @@ function getTheme(current: string | null): PaletteMode {
 
 export default function DarkThemeProvider(props: ThemeProps) {
     const { children } = props;
-    const currentTheme = typeof window !== "undefined" ? localStorage.getItem("theme") : "dark";
-    const [mode, setMode] = React.useState<PaletteMode>(() => getTheme(currentTheme))
+    const [mode, setMode] = React.useState<PaletteMode>(() => getTheme("dark"))
     const theme = React.useMemo(() => createTheme({ palette: { mode, ...themeOptions.palette } }), [mode])
+
     const toggleMode = () => {
         setMode(curr => {
-            const newMode = curr === "light" ? "dark" : "light"
-            localStorage.setItem("theme", newMode);
+            const newMode = (curr === "light") ? "dark" : "light"
             return newMode
         })
     }
 
     return (
         <ThemeProvider theme={theme}>
-            <html className={mode} lang="en">
+            <div className={mode} lang="en">
                 <CssBaseline />
-                <body className="text-black bg-white dark:bg-black dark:text-white z-0 min-h-screen relative">
+                <div className="text-black dark:text-white z-0 min-h-screen relative">
                     {children}
                     <ToggleThemeButton mode={mode} toggle={toggleMode} />
-                </body>
-            </html>
+                </div>
+            </div>
         </ThemeProvider>
     )
 }
